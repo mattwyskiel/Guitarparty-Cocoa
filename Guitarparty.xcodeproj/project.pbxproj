@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		A493CBB0199485D100306666 /* Guitarparty.h in Headers */ = {isa = PBXBuildFile; fileRef = A493CBAF199485D100306666 /* Guitarparty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A493CBBA199485D200306666 /* GuitarpartyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A493CBB9199485D200306666 /* GuitarpartyTests.swift */; };
+		A493CBC4199488A800306666 /* Guitarparty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A493CBC3199488A800306666 /* Guitarparty.swift */; };
+		A4F30DFA199564E400F62B89 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30DF9199564E400F62B89 /* Utils.swift */; };
+		A4F30E021995786700F62B89 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E001995786700F62B89 /* Fetcher.swift */; };
+		A4F30E031995786700F62B89 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E011995786700F62B89 /* ModelObject.swift */; };
+		A4F30E05199589E100F62B89 /* ModelObjectCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E04199589E100F62B89 /* ModelObjectCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +23,11 @@
 		A493CBB5199485D200306666 /* GuitarpartyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuitarpartyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A493CBB8199485D200306666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A493CBB9199485D200306666 /* GuitarpartyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarpartyTests.swift; sourceTree = "<group>"; };
+		A493CBC3199488A800306666 /* Guitarparty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guitarparty.swift; sourceTree = "<group>"; };
+		A4F30DF9199564E400F62B89 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A4F30E001995786700F62B89 /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
+		A4F30E011995786700F62B89 /* ModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelObject.swift; sourceTree = "<group>"; };
+		A4F30E04199589E100F62B89 /* ModelObjectCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelObjectCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +71,9 @@
 			children = (
 				A493CBAF199485D100306666 /* Guitarparty.h */,
 				A493CBAD199485D100306666 /* Supporting Files */,
+				A493CBC3199488A800306666 /* Guitarparty.swift */,
+				A4F30DF9199564E400F62B89 /* Utils.swift */,
+				A4F30DFB199570BF00F62B89 /* Base Classes */,
 			);
 			path = Guitarparty;
 			sourceTree = "<group>";
@@ -88,6 +101,16 @@
 				A493CBB8199485D200306666 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A4F30DFB199570BF00F62B89 /* Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A4F30E001995786700F62B89 /* Fetcher.swift */,
+				A4F30E011995786700F62B89 /* ModelObject.swift */,
+				A4F30E04199589E100F62B89 /* ModelObjectCollection.swift */,
+			);
+			name = "Base Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +219,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A493CBC4199488A800306666 /* Guitarparty.swift in Sources */,
+				A4F30DFA199564E400F62B89 /* Utils.swift in Sources */,
+				A4F30E021995786700F62B89 /* Fetcher.swift in Sources */,
+				A4F30E031995786700F62B89 /* ModelObject.swift in Sources */,
+				A4F30E05199589E100F62B89 /* ModelObjectCollection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,25 +326,30 @@
 		A493CBBE199485D200306666 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Guitarparty/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		A493CBBF199485D200306666 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Guitarparty/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -374,6 +407,7 @@
 				A493CBBF199485D200306666 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A493CBC0199485D200306666 /* Build configuration list for PBXNativeTarget "GuitarpartyTests" */ = {
 			isa = XCConfigurationList;
@@ -382,6 +416,7 @@
 				A493CBC2199485D200306666 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
