@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  ModelObject.swift
 //  Guitarparty
 //
 //  Created by Matthew Wyskiel on 8/8/14.
@@ -9,15 +9,22 @@
 import UIKit
 
 @objc(GPModelObject)
-class ModelObject {
+public class ModelObject: NSCoding {
    
-    init(jsonDictionary: [String:AnyObject]) {
+    required public init(jsonDictionary: [String:AnyObject]) {
         fatalError("This class does not override and implement init(jsonDictionary:)")
     }
     
     init() {
-        
+        // Nothing to initialize
     }
     
+    required public init(coder aDecoder: NSCoder!) {
+        // No objects to decode
+    }
+    
+    public func encodeWithCoder(aCoder: NSCoder!) {
+        // No objects to encode
+    }
     
 }

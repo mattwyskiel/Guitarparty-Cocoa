@@ -8,15 +8,24 @@
 
 import UIKit
 
-class ModelObjectCollection: ModelObject {
+class ModelObjectCollection: ModelObject, NSCoding {
     
     var objects: [AnyObject]?
+    let objectsKey = "objects"
     
-    override init(jsonDictionary: [String : AnyObject]) {
-        if let objectsArray: AnyObject = jsonDictionary["Objects"] {
+    required init(jsonDictionary: [String : AnyObject]) {
+        if let objectsArray: AnyObject = jsonDictionary[objectsKey] {
             objects = objectsArray as? [AnyObject]
         }
         super.init()
     }
+    
+    required init(coder aDecoder: NSCoder!) {
+        objects = aDecoder.decodeObjectForKey(objectsKey) as? [AnyObject]
+        super.init(coder: aDecoder)
+    }
    
+    override func encodeWithCoder(aCoder: NSCoder!) {
+        aCoder.encodeObject(objects, forKey: objectsKey)
+    }
 }

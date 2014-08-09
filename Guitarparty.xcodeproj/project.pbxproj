@@ -14,6 +14,8 @@
 		A4F30E021995786700F62B89 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E001995786700F62B89 /* Fetcher.swift */; };
 		A4F30E031995786700F62B89 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E011995786700F62B89 /* ModelObject.swift */; };
 		A4F30E05199589E100F62B89 /* ModelObjectCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E04199589E100F62B89 /* ModelObjectCollection.swift */; };
+		A4F30E08199591D200F62B89 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E07199591D200F62B89 /* Song.swift */; };
+		A4F30E0A19959A0C00F62B89 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E0919959A0C00F62B89 /* Chord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		A4F30E001995786700F62B89 /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		A4F30E011995786700F62B89 /* ModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelObject.swift; sourceTree = "<group>"; };
 		A4F30E04199589E100F62B89 /* ModelObjectCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelObjectCollection.swift; sourceTree = "<group>"; };
+		A4F30E07199591D200F62B89 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		A4F30E0919959A0C00F62B89 /* Chord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 		A493CBAC199485D100306666 /* Guitarparty */ = {
 			isa = PBXGroup;
 			children = (
+				A4F30E061995917900F62B89 /* Songs */,
 				A493CBAF199485D100306666 /* Guitarparty.h */,
 				A493CBAD199485D100306666 /* Supporting Files */,
 				A493CBC3199488A800306666 /* Guitarparty.swift */,
@@ -111,6 +116,15 @@
 				A4F30E04199589E100F62B89 /* ModelObjectCollection.swift */,
 			);
 			name = "Base Classes";
+			sourceTree = "<group>";
+		};
+		A4F30E061995917900F62B89 /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				A4F30E07199591D200F62B89 /* Song.swift */,
+				A4F30E0919959A0C00F62B89 /* Chord.swift */,
+			);
+			name = Songs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,11 +233,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4F30E08199591D200F62B89 /* Song.swift in Sources */,
 				A493CBC4199488A800306666 /* Guitarparty.swift in Sources */,
 				A4F30DFA199564E400F62B89 /* Utils.swift in Sources */,
 				A4F30E021995786700F62B89 /* Fetcher.swift in Sources */,
 				A4F30E031995786700F62B89 /* ModelObject.swift in Sources */,
 				A4F30E05199589E100F62B89 /* ModelObjectCollection.swift in Sources */,
+				A4F30E0A19959A0C00F62B89 /* Chord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
