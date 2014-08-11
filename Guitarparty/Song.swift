@@ -11,15 +11,25 @@ import UIKit
 @objc(GPSong)
 public class Song: ModelObject, NSCoding {
     
+    /// List of the song's authors
     public var authors: [Author]
+    /// The song's body; for example: "\ \ and there's [G]nothing I can [Am]do to keep\ \ from [G]crying, when he calls your name,"
     public var body: String
+    /// An html-renderable version of the song's body
     public var htmlBody: String
+    /// The song's body, stripped of the chords
     public var strippedBody: String
+    /// List of all the chords used in this song.
     public var chords: [Chord]
+    /// The identifier of this song.
     @objc(identifier) public var id: Int
+    /// The permalink to the webpage of this song.
     public var permalink: NSURL
+    /// The list of this song's tags.
     public var tags: [String]
+    /// The song's title.
     public var title: String
+    /// The song's uri, used to access the song via the API; relative to the API host (i.e. http://api.guitarparty.com)
     public var uri: String
     
     let authorsKey = "authors"

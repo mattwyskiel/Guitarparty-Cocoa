@@ -9,7 +9,7 @@
 import UIKit
 
 @objc(GPFetcher)
-class Fetcher {
+public class Fetcher {
     
     enum FetcherRequestMethod: String {
         case GET = "GET"
@@ -45,7 +45,6 @@ class Fetcher {
         let session = NSURLSession(configuration: configuration)
         let dataTask = session.dataTaskWithRequest(urlRequest) { (data, response, error) -> Void in
             if error != nil {
-                // TODO: Handle Error
                 let newError = Utils.customError(forNetworkError: error)
                 completionHandler(jsonDict: nil, error: newError)
                 return

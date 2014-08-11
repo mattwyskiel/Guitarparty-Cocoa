@@ -8,24 +8,48 @@
 
 import UIKit
 
-class ModelObjectCollection: ModelObject, NSCoding {
+public class ModelObjectCollection: ModelObject, NSCoding {
     
-    var objects: [AnyObject]?
+    public subscript(index: Int) -> AnyObject {
+        get {
+            return objects[index]
+    }
+        set(newValue) {
+            objects[index] = newValue
+    }
+    }
+    
+    /** 
+        Array of objects of a subtype of ModelObject
+    */
+    public var objects: [AnyObject]
     let objectsKey = "objects"
     
-    required init(jsonDictionary: [String : AnyObject]) {
-        if let objectsArray: AnyObject = jsonDictionary[objectsKey] {
-            objects = objectsArray as? [AnyObject]
-        }
+    required public init(jsonDictionary: [String : AnyObject]) {
+        let objectsArrayAnyObject: AnyObject? = jsonDictionary[objectsKey]
+        objects = objectsArrayAnyObject as [AnyObject]
+        
         super.init()
     }
     
-    required init(coder aDecoder: NSCoder!) {
-        objects = aDecoder.decodeObjectForKey(objectsKey) as? [AnyObject]
+    required public init(coder aDecoder: NSCoder!) {
+        objects = aDecoder.decodeObjectForKey(objectsKey) as [AnyObject]
         super.init(coder: aDecoder)
     }
    
-    override func encodeWithCoder(aCoder: NSCoder!) {
+    override public func encodeWithCoder(aCoder: NSCoder!) {
         aCoder.encodeObject(objects, forKey: objectsKey)
+    }
+    
+    override init() {
+        objects = []
+        super.init()
+    }
+    
+}
+
+extension ModelObjectCollection: SequenceType {
+    public func generate() -> IndexingGenerator<[AnyObject]> {
+        return objects.generate()
     }
 }

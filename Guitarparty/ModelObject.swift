@@ -11,6 +11,7 @@ import UIKit
 @objc(GPModelObject)
 public class ModelObject: NSCoding {
    
+    
     required public init(jsonDictionary: [String:AnyObject]) {
         fatalError("This class does not override and implement init(jsonDictionary:)")
     }

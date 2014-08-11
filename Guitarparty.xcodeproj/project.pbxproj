@@ -10,6 +10,8 @@
 		A493CBB0199485D100306666 /* Guitarparty.h in Headers */ = {isa = PBXBuildFile; fileRef = A493CBAF199485D100306666 /* Guitarparty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A493CBBA199485D200306666 /* GuitarpartyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A493CBB9199485D200306666 /* GuitarpartyTests.swift */; };
 		A493CBC4199488A800306666 /* Guitarparty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A493CBC3199488A800306666 /* Guitarparty.swift */; };
+		A4C7E9921998300B0044A8C9 /* SongFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7E9911998300B0044A8C9 /* SongFetcher.swift */; };
+		A4C7E9941998301D0044A8C9 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7E9931998301D0044A8C9 /* SongList.swift */; };
 		A4F30DFA199564E400F62B89 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30DF9199564E400F62B89 /* Utils.swift */; };
 		A4F30E021995786700F62B89 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E001995786700F62B89 /* Fetcher.swift */; };
 		A4F30E031995786700F62B89 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E011995786700F62B89 /* ModelObject.swift */; };
@@ -26,6 +28,8 @@
 		A493CBB8199485D200306666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A493CBB9199485D200306666 /* GuitarpartyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarpartyTests.swift; sourceTree = "<group>"; };
 		A493CBC3199488A800306666 /* Guitarparty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guitarparty.swift; sourceTree = "<group>"; };
+		A4C7E9911998300B0044A8C9 /* SongFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongFetcher.swift; sourceTree = "<group>"; };
+		A4C7E9931998301D0044A8C9 /* SongList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongList.swift; sourceTree = "<group>"; };
 		A4F30DF9199564E400F62B89 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A4F30E001995786700F62B89 /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		A4F30E011995786700F62B89 /* ModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelObject.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 			children = (
 				A4F30E07199591D200F62B89 /* Song.swift */,
 				A4F30E0919959A0C00F62B89 /* Chord.swift */,
+				A4C7E9911998300B0044A8C9 /* SongFetcher.swift */,
+				A4C7E9931998301D0044A8C9 /* SongList.swift */,
 			);
 			name = Songs;
 			sourceTree = "<group>";
@@ -236,7 +242,9 @@
 				A4F30E08199591D200F62B89 /* Song.swift in Sources */,
 				A493CBC4199488A800306666 /* Guitarparty.swift in Sources */,
 				A4F30DFA199564E400F62B89 /* Utils.swift in Sources */,
+				A4C7E9941998301D0044A8C9 /* SongList.swift in Sources */,
 				A4F30E021995786700F62B89 /* Fetcher.swift in Sources */,
+				A4C7E9921998300B0044A8C9 /* SongFetcher.swift in Sources */,
 				A4F30E031995786700F62B89 /* ModelObject.swift in Sources */,
 				A4F30E05199589E100F62B89 /* ModelObjectCollection.swift in Sources */,
 				A4F30E0A19959A0C00F62B89 /* Chord.swift in Sources */,
