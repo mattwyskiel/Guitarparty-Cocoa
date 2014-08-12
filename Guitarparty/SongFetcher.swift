@@ -15,6 +15,8 @@ public class SongFetcher: Fetcher {
     
     Queries for songs using the provided query string, passing the results to a completion handler.
     
+    Note: Make sure the query is a url-safe string.
+    
     :param: query The query string used to search for songs
     :param: completionHandler The completion handler, which is passed a SongList of search results and an error object. Both are optional values and it's either one or the other.
     
@@ -42,15 +44,15 @@ public class SongFetcher: Fetcher {
     Note: The uri parameter is always relative to the API host (i.e. http://api.guitarparty.com)
     
     */
-    public func getSong(#uri: String, completionHandler: (results: Song?, error: NSError?) -> ()) {
+    public func getSong(#uri: String, completionHandler: (result: Song?, error: NSError?) -> ()) {
         Fetcher.performRequest(endpoint: uri, method: .GET) { (jsonDict, error) -> () in
             if error != nil {
-                completionHandler(results: nil, error: error)
+                completionHandler(result: nil, error: error)
                 return
             }
             if jsonDict != nil {
                 let song = Song(jsonDictionary: jsonDict!)
-                completionHandler(results: song, error: nil)
+                completionHandler(result: song, error: nil)
             }
         }
     }
@@ -63,15 +65,15 @@ public class SongFetcher: Fetcher {
     :param: completionHandler The completion handler, which is passed the results in the form of a Song object and an error object. Both are optional values and it's either one or the other.
     
     */
-    public func getSong(#id: Int, completionHandler: (results: Song?, error: NSError?) -> ()) {
+    public func getSong(#id: Int, completionHandler: (result: Song?, error: NSError?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/songs/\(id)/", method: .GET) { (jsonDict, error) -> () in
             if error != nil {
-                completionHandler(results: nil, error: error)
+                completionHandler(result: nil, error: error)
                 return
             }
             if jsonDict != nil {
                 let song = Song(jsonDictionary: jsonDict!)
-                completionHandler(results: song, error: nil)
+                completionHandler(result: song, error: nil)
             }
         }
     }

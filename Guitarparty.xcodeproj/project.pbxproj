@@ -12,6 +12,9 @@
 		A493CBC4199488A800306666 /* Guitarparty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A493CBC3199488A800306666 /* Guitarparty.swift */; };
 		A4C7E9921998300B0044A8C9 /* SongFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7E9911998300B0044A8C9 /* SongFetcher.swift */; };
 		A4C7E9941998301D0044A8C9 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7E9931998301D0044A8C9 /* SongList.swift */; };
+		A4D6A62D199A5FA700294A5D /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6A62C199A5FA700294A5D /* Artist.swift */; };
+		A4D6A62F199A658F00294A5D /* ArtistFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6A62E199A658F00294A5D /* ArtistFetcher.swift */; };
+		A4D6A631199A65F900294A5D /* ArtistList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6A630199A65F900294A5D /* ArtistList.swift */; };
 		A4F30DFA199564E400F62B89 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30DF9199564E400F62B89 /* Utils.swift */; };
 		A4F30E021995786700F62B89 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E001995786700F62B89 /* Fetcher.swift */; };
 		A4F30E031995786700F62B89 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E011995786700F62B89 /* ModelObject.swift */; };
@@ -30,6 +33,9 @@
 		A493CBC3199488A800306666 /* Guitarparty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guitarparty.swift; sourceTree = "<group>"; };
 		A4C7E9911998300B0044A8C9 /* SongFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongFetcher.swift; sourceTree = "<group>"; };
 		A4C7E9931998301D0044A8C9 /* SongList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongList.swift; sourceTree = "<group>"; };
+		A4D6A62C199A5FA700294A5D /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		A4D6A62E199A658F00294A5D /* ArtistFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistFetcher.swift; sourceTree = "<group>"; };
+		A4D6A630199A65F900294A5D /* ArtistList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistList.swift; sourceTree = "<group>"; };
 		A4F30DF9199564E400F62B89 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A4F30E001995786700F62B89 /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		A4F30E011995786700F62B89 /* ModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelObject.swift; sourceTree = "<group>"; };
@@ -77,6 +83,7 @@
 		A493CBAC199485D100306666 /* Guitarparty */ = {
 			isa = PBXGroup;
 			children = (
+				A4D6A62B199A5F2F00294A5D /* Artists */,
 				A4F30E061995917900F62B89 /* Songs */,
 				A493CBAF199485D100306666 /* Guitarparty.h */,
 				A493CBAD199485D100306666 /* Supporting Files */,
@@ -110,6 +117,16 @@
 				A493CBB8199485D200306666 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A4D6A62B199A5F2F00294A5D /* Artists */ = {
+			isa = PBXGroup;
+			children = (
+				A4D6A62C199A5FA700294A5D /* Artist.swift */,
+				A4D6A62E199A658F00294A5D /* ArtistFetcher.swift */,
+				A4D6A630199A65F900294A5D /* ArtistList.swift */,
+			);
+			name = Artists;
 			sourceTree = "<group>";
 		};
 		A4F30DFB199570BF00F62B89 /* Base Classes */ = {
@@ -245,8 +262,11 @@
 				A4C7E9941998301D0044A8C9 /* SongList.swift in Sources */,
 				A4F30E021995786700F62B89 /* Fetcher.swift in Sources */,
 				A4C7E9921998300B0044A8C9 /* SongFetcher.swift in Sources */,
+				A4D6A631199A65F900294A5D /* ArtistList.swift in Sources */,
 				A4F30E031995786700F62B89 /* ModelObject.swift in Sources */,
 				A4F30E05199589E100F62B89 /* ModelObjectCollection.swift in Sources */,
+				A4D6A62F199A658F00294A5D /* ArtistFetcher.swift in Sources */,
+				A4D6A62D199A5FA700294A5D /* Artist.swift in Sources */,
 				A4F30E0A19959A0C00F62B89 /* Chord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

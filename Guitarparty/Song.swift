@@ -106,8 +106,11 @@ public class Song: ModelObject, NSCoding {
     @objc(GPSongAuthor)
     public class Author: ModelObject, NSCoding {
         
+        /// The author's name.
         public var name: String
+        /// The song types.
         public var types: [String]
+        /// The URI for the author, relative to the API host.
         public var uri: String
         
         let nameKey = "name"

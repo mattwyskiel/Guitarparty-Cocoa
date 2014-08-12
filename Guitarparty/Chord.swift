@@ -8,12 +8,18 @@
 
 import UIKit
 
+@objc(GPChord)
 public class Chord: ModelObject, NSCoding {
     
+    /// The code for the chord in the database; for example, the code for Am = "xo221o".
     public var code: String
+    /// The URL for an image of the chord's diagram.
     public var imageUrl: NSURL
+    /// The instrument that the chord is played on.
     public var instrument: Instrument
+    /// The name of the chord.
     public var name: String
+    /// The URI of the chord in the database.
     public var uri: String
     
     let codeKey = "code"
@@ -60,11 +66,15 @@ public class Chord: ModelObject, NSCoding {
     
 }
 
+@objc(GPInstrument)
 public class Instrument: ModelObject, NSCoding {
     
-    var name: String
-    var safeName: String
-    var tuning: String
+    /// The name of the instrument.
+    public var name: String
+    /// The url-safe name of the instrument, for queries, input into image names, etc.
+    public var safeName: String
+    /// The tuning of the instrument; for example, the tuning of a guitar is "EADGBE"
+    public var tuning: String
     
     let nameKey = "name"
     let safeNameKey = "safe_name"

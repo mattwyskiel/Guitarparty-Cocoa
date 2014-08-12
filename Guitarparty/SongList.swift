@@ -52,7 +52,7 @@ extension SongList: SequenceType {
 
 extension SongList: ArrayLiteralConvertible {
     public class func convertFromArrayLiteral(elements: Song...) -> SongList {
-        let songList = SongList(coder: nil)
+        let songList = SongList()
         songList.objects = elements
         return songList
     }
