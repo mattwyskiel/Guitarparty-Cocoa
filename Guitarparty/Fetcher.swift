@@ -3,7 +3,7 @@
 //  Guitarparty
 //
 //  Created by Matthew Wyskiel on 8/8/14.
-//  Copyright (c) 2014 Guitarparty.com. All rights reserved.
+//  Copyright (c) 2014 Matthew Wyskiel. All rights reserved.
 //
 
 import UIKit
@@ -26,7 +26,7 @@ public class Fetcher {
         :param: body (optional) An HTTP body dictionary
         :param: completionHandler A block/closure to be called after the request completes.
     */
-    class func performRequest(#endpoint: String, method: FetcherRequestMethod, body: [String:String]? = nil, completionHandler: (jsonDict: [String: AnyObject]?, error: NSError?) -> ()) {
+    class func performRequest(#endpoint: String, method: FetcherRequestMethod, body: [String:AnyObject]? = nil, completionHandler: (jsonDict: [String: AnyObject]?, error: NSError?) -> ()) {
         let urlString = "http://api.guitarparty.com\(endpoint)"
         let urlRequest = NSMutableURLRequest(URL: NSURL(string: urlString))
         urlRequest.HTTPMethod = method.toRaw()

@@ -3,7 +3,7 @@
 //  Guitarparty
 //
 //  Created by Matthew Wyskiel on 8/12/14.
-//  Copyright (c) 2014 Guitarparty.com. All rights reserved.
+//  Copyright (c) 2014 Matthew Wyskiel. All rights reserved.
 //
 
 import UIKit
@@ -32,20 +32,16 @@ public class Artist: ModelObject {
         name = jsonNSDict.objectForKey(nameKey) as String
         slug = jsonNSDict.objectForKey(slugKey) as String
         uri = jsonNSDict.objectForKey(uriKey) as String
-        
-        super.init()
     }
     
-    required public init(coder aDecoder: NSCoder!) {
+    required public init(coder aDecoder: NSCoder) {
         bio = aDecoder.decodeObjectForKey(bioKey) as String
         name = aDecoder.decodeObjectForKey(nameKey) as String
         slug = aDecoder.decodeObjectForKey(slugKey) as String
         uri = aDecoder.decodeObjectForKey(uriKey) as String
-        
-        super.init(coder: aDecoder)
     }
     
-    override public func encodeWithCoder(aCoder: NSCoder!) {
+    public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(bio, forKey: bioKey)
         aCoder.encodeObject(name, forKey: nameKey)
         aCoder.encodeObject(slug, forKey: slugKey)

@@ -3,13 +3,13 @@
 //  Guitarparty
 //
 //  Created by Matthew Wyskiel on 8/8/14.
-//  Copyright (c) 2014 Guitarparty.com. All rights reserved.
+//  Copyright (c) 2014 Matthew Wyskiel. All rights reserved.
 //
 
 import UIKit
 
 @objc(GPSong)
-public class Song: ModelObject, NSCoding {
+public class Song: ModelObject {
     
     /// List of the song's authors
     public var authors: [Author]
@@ -43,7 +43,7 @@ public class Song: ModelObject, NSCoding {
     let titleKey = "title"
     let uriKey = "uri"
     
-    required public init(coder aDecoder: NSCoder!) {
+    required public init(coder aDecoder: NSCoder) {
         authors = aDecoder.decodeObjectForKey(authorsKey) as [Author]
         body = aDecoder.decodeObjectForKey(bodyKey) as String
         htmlBody = aDecoder.decodeObjectForKey(htmlBodyKey) as String
@@ -54,8 +54,6 @@ public class Song: ModelObject, NSCoding {
         tags = aDecoder.decodeObjectForKey(tagsKey) as [String]
         title = aDecoder.decodeObjectForKey(titleKey) as String
         uri = aDecoder.decodeObjectForKey(uriKey) as String
-        
-        super.init(coder: aDecoder)
     }
     
     required public init(jsonDictionary: [String : AnyObject]) {
@@ -86,11 +84,9 @@ public class Song: ModelObject, NSCoding {
         tags = jsonNSDict.objectForKey(tagsKey) as [String]
         title = jsonNSDict.objectForKey(titleKey) as String
         uri = jsonNSDict.objectForKey(uriKey) as String
-        
-        super.init()
     }
     
-    override public func encodeWithCoder(aCoder: NSCoder!) {
+    public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(authors, forKey: authorsKey)
         aCoder.encodeObject(body, forKey: bodyKey)
         aCoder.encodeObject(htmlBody, forKey: htmlBodyKey)
@@ -104,7 +100,7 @@ public class Song: ModelObject, NSCoding {
     }
     
     @objc(GPSongAuthor)
-    public class Author: ModelObject, NSCoding {
+    public class Author: ModelObject {
         
         /// The author's name.
         public var name: String
@@ -117,12 +113,10 @@ public class Song: ModelObject, NSCoding {
         let typesKey = "types"
         let uriKey = "uri"
         
-        required public init(coder aDecoder: NSCoder!) {
+        required public init(coder aDecoder: NSCoder) {
             name = aDecoder.decodeObjectForKey(nameKey) as String
             types = aDecoder.decodeObjectForKey(typesKey) as [String]
             uri = aDecoder.decodeObjectForKey(uriKey) as String
-            
-            super.init(coder: aDecoder)
         }
         
         required public init(jsonDictionary: [String : AnyObject]) {
@@ -131,11 +125,9 @@ public class Song: ModelObject, NSCoding {
             name = jsonNSDict.objectForKey(nameKey) as String
             types = jsonNSDict.objectForKey(typesKey) as [String]
             uri = jsonNSDict.objectForKey(uriKey) as String
-            
-            super.init()
         }
         
-        override public func encodeWithCoder(aCoder: NSCoder!) {
+        public func encodeWithCoder(aCoder: NSCoder) {
             aCoder.encodeObject(name, forKey: nameKey)
             aCoder.encodeObject(types, forKey: typesKey)
             aCoder.encodeObject(uri, forKey: uriKey)

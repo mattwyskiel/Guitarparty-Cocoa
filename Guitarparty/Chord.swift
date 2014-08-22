@@ -3,13 +3,13 @@
 //  Guitarparty
 //
 //  Created by Matthew Wyskiel on 8/8/14.
-//  Copyright (c) 2014 Guitarparty.com. All rights reserved.
+//  Copyright (c) 2014 Matthew Wyskiel. All rights reserved.
 //
 
 import UIKit
 
 @objc(GPChord)
-public class Chord: ModelObject, NSCoding {
+public class Chord: ModelObject {
     
     /// The code for the chord in the database; for example, the code for Am = "xo221o".
     public var code: String
@@ -42,21 +42,17 @@ public class Chord: ModelObject, NSCoding {
         name = jsonNSDict.objectForKey(nameKey) as String
         
         uri = jsonNSDict.objectForKey(uriKey) as String
-        
-        super.init()
     }
     
-    public required init(coder aDecoder: NSCoder!) {
+    public required init(coder aDecoder: NSCoder) {
         code = aDecoder.decodeObjectForKey(codeKey) as String
         imageUrl = aDecoder.decodeObjectForKey(imageUrlKey) as NSURL
         instrument = aDecoder.decodeObjectForKey(instrumentKey) as Instrument
         name = aDecoder.decodeObjectForKey(nameKey) as String
         uri = aDecoder.decodeObjectForKey(uriKey) as String
-        
-        super.init(coder: aDecoder)
     }
     
-    public override func encodeWithCoder(aCoder: NSCoder!) {
+    public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(code, forKey: codeKey)
         aCoder.encodeObject(imageUrl, forKey: imageUrlKey)
         aCoder.encodeObject(instrument, forKey: instrumentKey)
@@ -67,7 +63,7 @@ public class Chord: ModelObject, NSCoding {
 }
 
 @objc(GPInstrument)
-public class Instrument: ModelObject, NSCoding {
+public class Instrument: ModelObject {
     
     /// The name of the instrument.
     public var name: String
@@ -87,19 +83,15 @@ public class Instrument: ModelObject, NSCoding {
         name = jsonNSDict.objectForKey(nameKey) as String
         safeName = jsonNSDict.objectForKey(safeNameKey) as String
         tuning = jsonNSDict.objectForKey(tuningKey) as String
-        
-        super.init()
     }
     
-    required public init(coder aDecoder: NSCoder!) {
+    required public init(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObjectForKey(nameKey) as String
         safeName = aDecoder.decodeObjectForKey(safeNameKey) as String
         tuning = aDecoder.decodeObjectForKey(tuningKey) as String
-        
-        super.init(coder: aDecoder)
     }
     
-    override public func encodeWithCoder(aCoder: NSCoder!) {
+    public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(name, forKey: nameKey)
         aCoder.encodeObject(safeName, forKey: safeNameKey)
         aCoder.encodeObject(tuning, forKey: tuningKey)

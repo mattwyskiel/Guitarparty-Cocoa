@@ -3,36 +3,36 @@
 //  Guitarparty
 //
 //  Created by Matthew Wyskiel on 8/12/14.
-//  Copyright (c) 2014 Guitarparty.com. All rights reserved.
+//  Copyright (c) 2014 Matthew Wyskiel. All rights reserved.
 //
 
 import UIKit
 
 @objc(GPArtistList)
-public class ArtistList: ModelObjectCollection {
+public final class ArtistList: ModelObjectCollection {
+
+    public var objects: [Artist] = []
+    let objectsKey = "objects"
+
     required public init(jsonDictionary: [String : AnyObject]) {
-        super.init(jsonDictionary: jsonDictionary)
-        
-        let capturedObjects = objects
-        objects = []
-        
-        for object: [String: AnyObject] in capturedObjects as [[String: AnyObject]] {
-            let artist = Artist(jsonDictionary: object)
+        let objectsArrayAnyObject: AnyObject? = jsonDictionary[objectsKey]
+        let objectDictsArray = objectsArrayAnyObject as [[String: AnyObject]]
+        for songObject in objectDictsArray {
+            let artist = Artist(jsonDictionary: songObject)
             objects.append(artist)
         }
     }
     
-    required public init(coder aDecoder: NSCoder!) {
-        super.init(coder: aDecoder)
+    required public init(coder aDecoder: NSCoder) {
         objects = aDecoder.decodeObjectForKey(objectsKey) as [Artist]
     }
     
-    override public func encodeWithCoder(aCoder: NSCoder!) {
+    public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(objects, forKey: objectsKey)
     }
-    
-    override init() {
-        super.init()
+
+    init() {
+        
     }
 }
 

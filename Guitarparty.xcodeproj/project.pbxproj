@@ -10,6 +10,8 @@
 		A493CBB0199485D100306666 /* Guitarparty.h in Headers */ = {isa = PBXBuildFile; fileRef = A493CBAF199485D100306666 /* Guitarparty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A493CBBA199485D200306666 /* GuitarpartyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A493CBB9199485D200306666 /* GuitarpartyTests.swift */; };
 		A493CBC4199488A800306666 /* Guitarparty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A493CBC3199488A800306666 /* Guitarparty.swift */; };
+		A49FAA55199FC5E500DE7A29 /* PartyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49FAA54199FC5E500DE7A29 /* PartyFetcher.swift */; };
+		A49FAA57199FCC2700DE7A29 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49FAA56199FCC2700DE7A29 /* Party.swift */; };
 		A4C7E9921998300B0044A8C9 /* SongFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7E9911998300B0044A8C9 /* SongFetcher.swift */; };
 		A4C7E9941998301D0044A8C9 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7E9931998301D0044A8C9 /* SongList.swift */; };
 		A4D6A62D199A5FA700294A5D /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6A62C199A5FA700294A5D /* Artist.swift */; };
@@ -18,7 +20,6 @@
 		A4F30DFA199564E400F62B89 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30DF9199564E400F62B89 /* Utils.swift */; };
 		A4F30E021995786700F62B89 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E001995786700F62B89 /* Fetcher.swift */; };
 		A4F30E031995786700F62B89 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E011995786700F62B89 /* ModelObject.swift */; };
-		A4F30E05199589E100F62B89 /* ModelObjectCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E04199589E100F62B89 /* ModelObjectCollection.swift */; };
 		A4F30E08199591D200F62B89 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E07199591D200F62B89 /* Song.swift */; };
 		A4F30E0A19959A0C00F62B89 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E0919959A0C00F62B89 /* Chord.swift */; };
 /* End PBXBuildFile section */
@@ -31,6 +32,8 @@
 		A493CBB8199485D200306666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A493CBB9199485D200306666 /* GuitarpartyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarpartyTests.swift; sourceTree = "<group>"; };
 		A493CBC3199488A800306666 /* Guitarparty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guitarparty.swift; sourceTree = "<group>"; };
+		A49FAA54199FC5E500DE7A29 /* PartyFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyFetcher.swift; sourceTree = "<group>"; };
+		A49FAA56199FCC2700DE7A29 /* Party.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		A4C7E9911998300B0044A8C9 /* SongFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongFetcher.swift; sourceTree = "<group>"; };
 		A4C7E9931998301D0044A8C9 /* SongList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongList.swift; sourceTree = "<group>"; };
 		A4D6A62C199A5FA700294A5D /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
@@ -39,7 +42,6 @@
 		A4F30DF9199564E400F62B89 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A4F30E001995786700F62B89 /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		A4F30E011995786700F62B89 /* ModelObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelObject.swift; sourceTree = "<group>"; };
-		A4F30E04199589E100F62B89 /* ModelObjectCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelObjectCollection.swift; sourceTree = "<group>"; };
 		A4F30E07199591D200F62B89 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		A4F30E0919959A0C00F62B89 /* Chord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A43BC5E919A7C7F1007165F4 /* Chords */ = {
+			isa = PBXGroup;
+			children = (
+				A4F30E0919959A0C00F62B89 /* Chord.swift */,
+			);
+			name = Chords;
+			sourceTree = "<group>";
+		};
 		A493CBA0199485D100306666 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +93,8 @@
 		A493CBAC199485D100306666 /* Guitarparty */ = {
 			isa = PBXGroup;
 			children = (
+				A43BC5E919A7C7F1007165F4 /* Chords */,
+				A49FAA53199FC38A00DE7A29 /* Parties */,
 				A4D6A62B199A5F2F00294A5D /* Artists */,
 				A4F30E061995917900F62B89 /* Songs */,
 				A493CBAF199485D100306666 /* Guitarparty.h */,
@@ -119,6 +131,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A49FAA53199FC38A00DE7A29 /* Parties */ = {
+			isa = PBXGroup;
+			children = (
+				A49FAA54199FC5E500DE7A29 /* PartyFetcher.swift */,
+				A49FAA56199FCC2700DE7A29 /* Party.swift */,
+			);
+			name = Parties;
+			sourceTree = "<group>";
+		};
 		A4D6A62B199A5F2F00294A5D /* Artists */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +155,6 @@
 			children = (
 				A4F30E001995786700F62B89 /* Fetcher.swift */,
 				A4F30E011995786700F62B89 /* ModelObject.swift */,
-				A4F30E04199589E100F62B89 /* ModelObjectCollection.swift */,
 			);
 			name = "Base Classes";
 			sourceTree = "<group>";
@@ -143,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				A4F30E07199591D200F62B89 /* Song.swift */,
-				A4F30E0919959A0C00F62B89 /* Chord.swift */,
 				A4C7E9911998300B0044A8C9 /* SongFetcher.swift */,
 				A4C7E9931998301D0044A8C9 /* SongList.swift */,
 			);
@@ -206,7 +225,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = Guitarparty.com;
+				ORGANIZATIONNAME = "Matthew Wyskiel";
 				TargetAttributes = {
 					A493CBA9199485D100306666 = {
 						CreatedOnToolsVersion = 6.0;
@@ -260,11 +279,12 @@
 				A493CBC4199488A800306666 /* Guitarparty.swift in Sources */,
 				A4F30DFA199564E400F62B89 /* Utils.swift in Sources */,
 				A4C7E9941998301D0044A8C9 /* SongList.swift in Sources */,
+				A49FAA55199FC5E500DE7A29 /* PartyFetcher.swift in Sources */,
 				A4F30E021995786700F62B89 /* Fetcher.swift in Sources */,
 				A4C7E9921998300B0044A8C9 /* SongFetcher.swift in Sources */,
 				A4D6A631199A65F900294A5D /* ArtistList.swift in Sources */,
 				A4F30E031995786700F62B89 /* ModelObject.swift in Sources */,
-				A4F30E05199589E100F62B89 /* ModelObjectCollection.swift in Sources */,
+				A49FAA57199FCC2700DE7A29 /* Party.swift in Sources */,
 				A4D6A62F199A658F00294A5D /* ArtistFetcher.swift in Sources */,
 				A4D6A62D199A5FA700294A5D /* Artist.swift in Sources */,
 				A4F30E0A19959A0C00F62B89 /* Chord.swift in Sources */,

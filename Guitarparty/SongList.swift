@@ -3,50 +3,57 @@
 //  Guitarparty
 //
 //  Created by Matthew Wyskiel on 8/10/14.
-//  Copyright (c) 2014 Guitarparty.com. All rights reserved.
+//  Copyright (c) 2014 Matthew Wyskiel. All rights reserved.
 //
 
 import UIKit
 
 @objc(GPSongList)
-public class SongList: ModelObjectCollection, NSCoding {
+public final class SongList: ModelObjectCollection {
     
-    required public init(jsonDictionary: [String : AnyObject]) {
-        super.init(jsonDictionary: jsonDictionary)
-        
-        let capturedObjects = objects
-        objects = []
-        
-        for object: [String: AnyObject] in capturedObjects as [[String: AnyObject]] {
-            let song = Song(jsonDictionary: object)
+    public subscript(index: Int) -> Song {
+        get {
+            return objects[index]
+        }
+        set(newValue) {
+            objects[index] = newValue
+        }
+    }
+    
+    /**
+        Array of objects of a subtype of ModelObject
+    */
+    public var objects: [Song] = []
+    typealias Element = Song
+    
+    let objectsKey = "objects"
+    
+    public required init(jsonDictionary: [String : AnyObject]) {
+        let objectsArrayAnyObject: AnyObject? = jsonDictionary[objectsKey]
+        let objectDictsArray = objectsArrayAnyObject as [[String: AnyObject]]
+        for songObject in objectDictsArray {
+            let song = Song(jsonDictionary: songObject)
             objects.append(song)
         }
     }
     
-    override init() {
-        super.init()
-    }
-    
-    required public init(coder aDecoder: NSCoder!) {
-        super.init(coder: aDecoder)
+    public required init(coder aDecoder: NSCoder) {
         objects = aDecoder.decodeObjectForKey(objectsKey) as [Song]
-        
+    }
+   
+    public func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(objects, forKey: objectsKey)
     }
     
-    override public func encodeWithCoder(aCoder: NSCoder!) {
-        aCoder.encodeObject(objects, forKey: objectsKey)
-        
+    init() {
+
     }
     
 }
 
-
 extension SongList: SequenceType {
-    typealias Generator = IndexingGenerator<[Song]>
-    
     public func generate() -> IndexingGenerator<[Song]> {
-        let songObjects = objects as [Song]
-        return songObjects.generate()
+        return objects.generate()
     }
 }
 

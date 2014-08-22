@@ -3,7 +3,7 @@
 //  Guitarparty
 //
 //  Created by Matthew Wyskiel on 8/10/14.
-//  Copyright (c) 2014 Guitarparty.com. All rights reserved.
+//  Copyright (c) 2014 Matthew Wyskiel. All rights reserved.
 //
 
 import UIKit
