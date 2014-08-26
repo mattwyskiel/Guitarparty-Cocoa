@@ -7,6 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A41398E719AC083300F74339 /* ChordFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41398E619AC083200F74339 /* ChordFetcher.swift */; };
+		A41398E919AC115400F74339 /* ChordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41398E819AC115200F74339 /* ChordList.swift */; };
+		A43BC5F419A7CA34007165F4 /* GuitarpartyOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = A43BC5F319A7CA34007165F4 /* GuitarpartyOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A43BC5FE19A7CA34007165F4 /* GuitarpartyOSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43BC5FD19A7CA34007165F4 /* GuitarpartyOSXTests.swift */; };
+		A43BC60519A7CA49007165F4 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E0919959A0C00F62B89 /* Chord.swift */; };
+		A43BC60619A7CA49007165F4 /* PartyFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49FAA54199FC5E500DE7A29 /* PartyFetcher.swift */; };
+		A43BC60719A7CA49007165F4 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49FAA56199FCC2700DE7A29 /* Party.swift */; };
+		A43BC60819A7CA49007165F4 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6A62C199A5FA700294A5D /* Artist.swift */; };
+		A43BC60919A7CA49007165F4 /* ArtistFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6A62E199A658F00294A5D /* ArtistFetcher.swift */; };
+		A43BC60A19A7CA49007165F4 /* ArtistList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6A630199A65F900294A5D /* ArtistList.swift */; };
+		A43BC60B19A7CA49007165F4 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E07199591D200F62B89 /* Song.swift */; };
+		A43BC60C19A7CA49007165F4 /* SongFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7E9911998300B0044A8C9 /* SongFetcher.swift */; };
+		A43BC60D19A7CA49007165F4 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7E9931998301D0044A8C9 /* SongList.swift */; };
+		A43BC60E19A7CA49007165F4 /* Guitarparty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A493CBC3199488A800306666 /* Guitarparty.swift */; };
+		A43BC60F19A7CA49007165F4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30DF9199564E400F62B89 /* Utils.swift */; };
+		A43BC61019A7CA49007165F4 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E001995786700F62B89 /* Fetcher.swift */; };
+		A43BC61119A7CA49007165F4 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F30E011995786700F62B89 /* ModelObject.swift */; };
 		A493CBB0199485D100306666 /* Guitarparty.h in Headers */ = {isa = PBXBuildFile; fileRef = A493CBAF199485D100306666 /* Guitarparty.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A493CBBA199485D200306666 /* GuitarpartyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A493CBB9199485D200306666 /* GuitarpartyTests.swift */; };
 		A493CBC4199488A800306666 /* Guitarparty.swift in Sources */ = {isa = PBXBuildFile; fileRef = A493CBC3199488A800306666 /* Guitarparty.swift */; };
@@ -25,6 +42,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A41398E619AC083200F74339 /* ChordFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordFetcher.swift; sourceTree = "<group>"; };
+		A41398E819AC115200F74339 /* ChordList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChordList.swift; sourceTree = "<group>"; };
+		A43BC5EF19A7CA34007165F4 /* GuitarpartyOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GuitarpartyOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A43BC5F219A7CA34007165F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A43BC5F319A7CA34007165F4 /* GuitarpartyOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuitarpartyOSX.h; sourceTree = "<group>"; };
+		A43BC5F919A7CA34007165F4 /* GuitarpartyOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuitarpartyOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A43BC5FC19A7CA34007165F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A43BC5FD19A7CA34007165F4 /* GuitarpartyOSXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarpartyOSXTests.swift; sourceTree = "<group>"; };
 		A493CBAA199485D100306666 /* Guitarparty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Guitarparty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A493CBAE199485D100306666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A493CBAF199485D100306666 /* Guitarparty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Guitarparty.h; sourceTree = "<group>"; };
@@ -47,6 +72,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A43BC5EB19A7CA34007165F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A43BC5F619A7CA34007165F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A493CBA6199485D100306666 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,8 +107,44 @@
 			isa = PBXGroup;
 			children = (
 				A4F30E0919959A0C00F62B89 /* Chord.swift */,
+				A41398E619AC083200F74339 /* ChordFetcher.swift */,
+				A41398E819AC115200F74339 /* ChordList.swift */,
 			);
 			name = Chords;
+			sourceTree = "<group>";
+		};
+		A43BC5F019A7CA34007165F4 /* GuitarpartyOSX */ = {
+			isa = PBXGroup;
+			children = (
+				A43BC5F319A7CA34007165F4 /* GuitarpartyOSX.h */,
+				A43BC5F119A7CA34007165F4 /* Supporting Files */,
+			);
+			path = GuitarpartyOSX;
+			sourceTree = "<group>";
+		};
+		A43BC5F119A7CA34007165F4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A43BC5F219A7CA34007165F4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A43BC5FA19A7CA34007165F4 /* GuitarpartyOSXTests */ = {
+			isa = PBXGroup;
+			children = (
+				A43BC5FD19A7CA34007165F4 /* GuitarpartyOSXTests.swift */,
+				A43BC5FB19A7CA34007165F4 /* Supporting Files */,
+			);
+			path = GuitarpartyOSXTests;
+			sourceTree = "<group>";
+		};
+		A43BC5FB19A7CA34007165F4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A43BC5FC19A7CA34007165F4 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A493CBA0199485D100306666 = {
@@ -77,6 +152,8 @@
 			children = (
 				A493CBAC199485D100306666 /* Guitarparty */,
 				A493CBB6199485D200306666 /* GuitarpartyTests */,
+				A43BC5F019A7CA34007165F4 /* GuitarpartyOSX */,
+				A43BC5FA19A7CA34007165F4 /* GuitarpartyOSXTests */,
 				A493CBAB199485D100306666 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +163,8 @@
 			children = (
 				A493CBAA199485D100306666 /* Guitarparty.framework */,
 				A493CBB5199485D200306666 /* GuitarpartyTests.xctest */,
+				A43BC5EF19A7CA34007165F4 /* GuitarpartyOSX.framework */,
+				A43BC5F919A7CA34007165F4 /* GuitarpartyOSXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,6 +251,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		A43BC5EC19A7CA34007165F4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A43BC5F419A7CA34007165F4 /* GuitarpartyOSX.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A493CBA7199485D100306666 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,6 +270,41 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		A43BC5EE19A7CA34007165F4 /* GuitarpartyOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A43BC5FF19A7CA34007165F4 /* Build configuration list for PBXNativeTarget "GuitarpartyOSX" */;
+			buildPhases = (
+				A43BC5EA19A7CA34007165F4 /* Sources */,
+				A43BC5EB19A7CA34007165F4 /* Frameworks */,
+				A43BC5EC19A7CA34007165F4 /* Headers */,
+				A43BC5ED19A7CA34007165F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GuitarpartyOSX;
+			productName = GuitarpartyOSX;
+			productReference = A43BC5EF19A7CA34007165F4 /* GuitarpartyOSX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A43BC5F819A7CA34007165F4 /* GuitarpartyOSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A43BC60219A7CA34007165F4 /* Build configuration list for PBXNativeTarget "GuitarpartyOSXTests" */;
+			buildPhases = (
+				A43BC5F519A7CA34007165F4 /* Sources */,
+				A43BC5F619A7CA34007165F4 /* Frameworks */,
+				A43BC5F719A7CA34007165F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GuitarpartyOSXTests;
+			productName = GuitarpartyOSXTests;
+			productReference = A43BC5F919A7CA34007165F4 /* GuitarpartyOSXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A493CBA9199485D100306666 /* Guitarparty */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A493CBBD199485D200306666 /* Build configuration list for PBXNativeTarget "Guitarparty" */;
@@ -227,6 +349,12 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Matthew Wyskiel";
 				TargetAttributes = {
+					A43BC5EE19A7CA34007165F4 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					A43BC5F819A7CA34007165F4 = {
+						CreatedOnToolsVersion = 6.0;
+					};
 					A493CBA9199485D100306666 = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -249,11 +377,27 @@
 			targets = (
 				A493CBA9199485D100306666 /* Guitarparty */,
 				A493CBB4199485D200306666 /* GuitarpartyTests */,
+				A43BC5EE19A7CA34007165F4 /* GuitarpartyOSX */,
+				A43BC5F819A7CA34007165F4 /* GuitarpartyOSXTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A43BC5ED19A7CA34007165F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A43BC5F719A7CA34007165F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A493CBA8199485D100306666 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,6 +415,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A43BC5EA19A7CA34007165F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A43BC60B19A7CA49007165F4 /* Song.swift in Sources */,
+				A43BC60A19A7CA49007165F4 /* ArtistList.swift in Sources */,
+				A43BC60919A7CA49007165F4 /* ArtistFetcher.swift in Sources */,
+				A43BC60D19A7CA49007165F4 /* SongList.swift in Sources */,
+				A43BC60619A7CA49007165F4 /* PartyFetcher.swift in Sources */,
+				A43BC61019A7CA49007165F4 /* Fetcher.swift in Sources */,
+				A43BC60C19A7CA49007165F4 /* SongFetcher.swift in Sources */,
+				A43BC60E19A7CA49007165F4 /* Guitarparty.swift in Sources */,
+				A43BC60F19A7CA49007165F4 /* Utils.swift in Sources */,
+				A43BC60719A7CA49007165F4 /* Party.swift in Sources */,
+				A43BC60819A7CA49007165F4 /* Artist.swift in Sources */,
+				A43BC61119A7CA49007165F4 /* ModelObject.swift in Sources */,
+				A43BC60519A7CA49007165F4 /* Chord.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A43BC5F519A7CA34007165F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A43BC5FE19A7CA34007165F4 /* GuitarpartyOSXTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A493CBA5199485D100306666 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,6 +451,7 @@
 				A493CBC4199488A800306666 /* Guitarparty.swift in Sources */,
 				A4F30DFA199564E400F62B89 /* Utils.swift in Sources */,
 				A4C7E9941998301D0044A8C9 /* SongList.swift in Sources */,
+				A41398E719AC083300F74339 /* ChordFetcher.swift in Sources */,
 				A49FAA55199FC5E500DE7A29 /* PartyFetcher.swift in Sources */,
 				A4F30E021995786700F62B89 /* Fetcher.swift in Sources */,
 				A4C7E9921998300B0044A8C9 /* SongFetcher.swift in Sources */,
@@ -287,6 +460,7 @@
 				A49FAA57199FCC2700DE7A29 /* Party.swift in Sources */,
 				A4D6A62F199A658F00294A5D /* ArtistFetcher.swift in Sources */,
 				A4D6A62D199A5FA700294A5D /* Artist.swift in Sources */,
+				A41398E919AC115400F74339 /* ChordList.swift in Sources */,
 				A4F30E0A19959A0C00F62B89 /* Chord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +476,86 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		A43BC60019A7CA34007165F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GuitarpartyOSX/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A43BC60119A7CA34007165F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = GuitarpartyOSX/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A43BC60319A7CA34007165F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GuitarpartyOSXTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A43BC60419A7CA34007165F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GuitarpartyOSXTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		A493CBBB199485D200306666 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -322,6 +576,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -368,6 +623,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -398,6 +654,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Guitarparty/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -416,6 +673,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Guitarparty/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -455,6 +713,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A43BC5FF19A7CA34007165F4 /* Build configuration list for PBXNativeTarget "GuitarpartyOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A43BC60019A7CA34007165F4 /* Debug */,
+				A43BC60119A7CA34007165F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A43BC60219A7CA34007165F4 /* Build configuration list for PBXNativeTarget "GuitarpartyOSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A43BC60319A7CA34007165F4 /* Debug */,
+				A43BC60419A7CA34007165F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A493CBA4199485D100306666 /* Build configuration list for PBXProject "Guitarparty" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

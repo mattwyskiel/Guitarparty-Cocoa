@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Matthew Wyskiel. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 @objc(GPUtils)
 class Utils {
@@ -50,9 +50,11 @@ class Utils {
                 localizedDescription = "We were unable to fetch the most recent data; please try again later."
             }
         }
-        if let returnCode = code {
-            if let localizedDescription = localizedDescription {
-                return NSError(domain: domain, code: returnCode, userInfo: [NSLocalizedFailureReasonErrorKey:localizedDescription])
+        if let domainName = domain {
+            if let returnCode = code {
+                if let localizedDescription = localizedDescription {
+                    return NSError(domain: domainName, code: returnCode, userInfo: [NSLocalizedFailureReasonErrorKey:localizedDescription])
+                }
             }
         }
         return nil

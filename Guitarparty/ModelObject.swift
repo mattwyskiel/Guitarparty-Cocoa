@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Matthew Wyskiel. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 @objc(GPModelObject)
 public protocol ModelObject: NSCoding {
@@ -15,5 +15,8 @@ public protocol ModelObject: NSCoding {
 
 public protocol ModelObjectCollection : ModelObject, SequenceType {
     typealias Element: ModelObject
+    /**
+        Array of objects
+    */
     var objects: [Element] { get set }
 }

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Matthew Wyskiel. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 @objc(GPArtist)
 public class Artist: ModelObject {
