@@ -21,7 +21,7 @@ public class SongFetcher: Fetcher {
     :param: completionHandler The completion handler, which is passed a SongList of search results and an error object. Both are optional values and it's either one or the other.
     
     */
-    public func searchForSongs(#query: String, completionHandler: (results: SongList?, error: NSError?) -> ()) {
+    public class func searchForSongs(#query: String, completionHandler: (results: SongList?, error: NSError?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/songs/?query=\(query)/", method: .GET) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(results: nil, error: error)
@@ -44,7 +44,7 @@ public class SongFetcher: Fetcher {
     Note: The uri parameter is always relative to the API host (i.e. http://api.guitarparty.com)
     
     */
-    public func getSong(#uri: String, completionHandler: (result: Song?, error: NSError?) -> ()) {
+    public class func getSong(#uri: String, completionHandler: (result: Song?, error: NSError?) -> ()) {
         Fetcher.performRequest(endpoint: uri, method: .GET) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(result: nil, error: error)
@@ -65,7 +65,7 @@ public class SongFetcher: Fetcher {
     :param: completionHandler The completion handler, which is passed the results in the form of a Song object and an error object. Both are optional values and it's either one or the other.
     
     */
-    public func getSong(#id: Int, completionHandler: (result: Song?, error: NSError?) -> ()) {
+    public class func getSong(#id: Int, completionHandler: (result: Song?, error: NSError?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/songs/\(id)/", method: .GET) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(result: nil, error: error)
