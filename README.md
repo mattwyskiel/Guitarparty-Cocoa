@@ -6,14 +6,14 @@ Welcome to the **Guitarparty iOS and OS X Client Library**. This library enables
 I wrote this library in the midst of my exploration of the new Swift language developed by Apple. So enjoy, catch bugs, submit pull requests, and make use of this library as much as you need.
 
 ## Requirements
-- **Xcode 6** (*currently compiles on Beta 6, the latest beta as of this writing; I will update whenever Swift changes and recompile to make sure everything works.*
+- **Xcode 6** (*currently compiles on Xcode 6 GM, the latest version of Xcode as of this writing; I will update whenever Swift changes and recompile to make sure everything works.*)
 
 
 - **iOS 8+** (*The dynamic framework will not compile on anything lower.*)
 
 *or:*
 
-- **OS X 10.9+** (*Swift is compatible with as early as Mavericks.*)
+- **OS X 10.9+** (*Swift is compatible with as early as Mavericks; but you need Xcode 6.1 beta to build and use*)
 
 ## Installation
 To quote [Mattt Thompson](https://github.com/mattt):
