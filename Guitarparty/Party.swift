@@ -34,7 +34,7 @@ public class Party: ModelObject {
         description = jsonNSDict.objectForKey(descriptionKey) as String?
         
         let urlString = jsonNSDict.objectForKey(urlKey) as String
-        url = NSURL(string: urlString)
+        url = NSURL(string: urlString)!
         
         shortCode = jsonNSDict.objectForKey(shortCodeKey) as String
         songCount = jsonNSDict.objectForKey(songCountKey) as Int

@@ -80,7 +80,7 @@ public class Song: ModelObject {
         }
         
         id = jsonNSDict.objectForKey(idKey) as Int
-        permalink = NSURL(string: jsonNSDict.objectForKey(permalinkKey) as String)
+        permalink = NSURL(string: jsonNSDict.objectForKey(permalinkKey) as String)!
         tags = jsonNSDict.objectForKey(tagsKey) as [String]
         title = jsonNSDict.objectForKey(titleKey) as String
         uri = jsonNSDict.objectForKey(uriKey) as String

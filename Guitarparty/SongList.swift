@@ -9,7 +9,7 @@
 import Foundation
 
 @objc(GPSongList)
-public final class SongList: ModelObjectCollection {
+public final class SongList: ModelObjectCollection, ArrayLiteralConvertible {
     
     public subscript(index: Int) -> Song {
         get {
@@ -49,18 +49,14 @@ public final class SongList: ModelObjectCollection {
 
     }
     
+    public init(arrayLiteral elements: Song...) {
+        objects = elements
+    }
+    
 }
 
 extension SongList: SequenceType {
     public func generate() -> IndexingGenerator<[Song]> {
         return objects.generate()
-    }
-}
-
-extension SongList: ArrayLiteralConvertible {
-    public class func convertFromArrayLiteral(elements: Song...) -> SongList {
-        let songList = SongList()
-        songList.objects = elements
-        return songList
     }
 }

@@ -28,11 +28,11 @@ public class Fetcher {
     */
     class func performRequest(#endpoint: String, method: FetcherRequestMethod, body: [String:AnyObject]? = nil, completionHandler: (jsonDict: [String: AnyObject]?, error: NSError?) -> ()) {
         let urlString = "http://api.guitarparty.com\(endpoint)"
-        let urlRequest = NSMutableURLRequest(URL: NSURL(string: urlString))
-        urlRequest.HTTPMethod = method.toRaw()
+        let urlRequest = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+        urlRequest.HTTPMethod = method.rawValue
         
         if body != nil {
-            let bodyData = NSJSONSerialization.dataWithJSONObject(body!, options: NSJSONWritingOptions.fromRaw(0)!, error: nil)
+            let bodyData = NSJSONSerialization.dataWithJSONObject(body!, options: NSJSONWritingOptions(0), error: nil)
         }
         
         if Guitarparty.APIConstant.apiKey != nil {
@@ -51,7 +51,7 @@ public class Fetcher {
             }
             
             var jsonError: NSError?
-            let jsonDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.fromRaw(0)!, error: &jsonError) as [String:String]
+            let jsonDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &jsonError) as [String:String]
             
             if jsonError != nil {
                 completionHandler(jsonDict: nil, error: jsonError)

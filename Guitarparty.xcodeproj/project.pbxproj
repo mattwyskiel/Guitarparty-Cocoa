@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A40592FF19F6FD2800314F2A /* ChordFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41398E619AC083200F74339 /* ChordFetcher.swift */; };
+		A405930019F6FD2800314F2A /* ChordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41398E819AC115200F74339 /* ChordList.swift */; };
 		A41398E719AC083300F74339 /* ChordFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41398E619AC083200F74339 /* ChordFetcher.swift */; };
 		A41398E919AC115400F74339 /* ChordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41398E819AC115200F74339 /* ChordList.swift */; };
 		A43BC5F419A7CA34007165F4 /* GuitarpartyOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = A43BC5F319A7CA34007165F4 /* GuitarpartyOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -423,6 +425,7 @@
 				A43BC60A19A7CA49007165F4 /* ArtistList.swift in Sources */,
 				A43BC60919A7CA49007165F4 /* ArtistFetcher.swift in Sources */,
 				A43BC60D19A7CA49007165F4 /* SongList.swift in Sources */,
+				A40592FF19F6FD2800314F2A /* ChordFetcher.swift in Sources */,
 				A43BC60619A7CA49007165F4 /* PartyFetcher.swift in Sources */,
 				A43BC61019A7CA49007165F4 /* Fetcher.swift in Sources */,
 				A43BC60C19A7CA49007165F4 /* SongFetcher.swift in Sources */,
@@ -431,6 +434,7 @@
 				A43BC60719A7CA49007165F4 /* Party.swift in Sources */,
 				A43BC60819A7CA49007165F4 /* Artist.swift in Sources */,
 				A43BC61119A7CA49007165F4 /* ModelObject.swift in Sources */,
+				A405930019F6FD2800314F2A /* ChordList.swift in Sources */,
 				A43BC60519A7CA49007165F4 /* Chord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

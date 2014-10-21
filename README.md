@@ -6,14 +6,14 @@ Welcome to the **Guitarparty iOS and OS X Client Library**. This library enables
 I wrote this library in the midst of my exploration of the new Swift language developed by Apple. So enjoy, catch bugs, submit pull requests, and make use of this library as much as you need.
 
 ## Requirements
-- **Xcode 6** (*currently compiles on Beta 6, the latest beta as of this writing; I will update whenever Swift changes and recompile to make sure everything works.*
+- **Xcode 6.1** (*works beautifully with Swift 1.1; I will update whenever Swift changes and recompile to make sure everything works.*)
 
 
-- **iOS 8+** (*The dynamic framework will not compile on anything lower.*)
+- **iOS 8+** (*Dynamic frameworks will not compile on anything lower.*)
 
-*or:*
+	*or:*
 
-- **OS X 10.9+** (*Swift is compatible with as early as Mavericks.*)
+- **OS X 10.9+** (*Swift is compatible with as early as Mavericks*)
 
 ## Installation
 To quote [Mattt Thompson](https://github.com/mattt):
@@ -59,7 +59,7 @@ SongFetcher.searchForSongs(query: "Jolene") { (results: SongList?, error: NSErro
                 // Handle error here
             } else {
                 if results != nil { // Check to make sure there is in fact a song list
-                    self.songList = results
+                    self.songList = results!
                 }
             }
         }   
@@ -81,7 +81,7 @@ SongFetcher.searchForSongs(query: "Jolene") { (results: SongList?, error: NSErro
 
 ## Documentation
 
-This library is well-documented using the standard in-line documentation methods. So quick-looking will give you the reference to the item being quick-looked.
+This library is well-documented using the standard in-line documentation methods. So quick-looking any symbol in this SDK will give you documentation for that item.
 
 ## License
 Copyright 2014 Matthew Wyskiel

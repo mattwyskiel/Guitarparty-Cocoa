@@ -9,7 +9,7 @@
 import Foundation
 
 @objc(GPChordList)
-public final class ChordList : ModelObjectCollection {
+public final class ChordList : ModelObjectCollection, ArrayLiteralConvertible {
     
     public var objects: [Chord] = []
     let objectsKey = "objects"
@@ -34,6 +34,10 @@ public final class ChordList : ModelObjectCollection {
     init() {
         
     }
+    
+    public init(arrayLiteral elements: Chord...) {
+        objects = elements
+    }
 
 }
 
@@ -43,13 +47,5 @@ extension ChordList: SequenceType {
     public func generate() -> IndexingGenerator<[Chord]> {
         let chordObjects = objects as [Chord]
         return chordObjects.generate()
-    }
-}
-
-extension ChordList: ArrayLiteralConvertible {
-    public class func convertFromArrayLiteral(elements: Chord...) -> ChordList {
-        let chordList = ChordList()
-        chordList.objects = elements
-        return chordList
     }
 }

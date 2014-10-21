@@ -34,7 +34,7 @@ public class Chord: ModelObject {
         code = jsonNSDict.objectForKey(codeKey) as String
         
         let imgUrlString = jsonNSDict.objectForKey(imageUrlKey) as String
-        imageUrl = NSURL(string: imgUrlString)
+        imageUrl = NSURL(string: imgUrlString)!
         
         let instrumentDictionary = jsonNSDict.objectForKey(instrumentKey) as [String:AnyObject]
         instrument = Instrument(jsonDictionary: instrumentDictionary)

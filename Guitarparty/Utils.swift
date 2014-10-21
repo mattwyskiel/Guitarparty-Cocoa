@@ -34,7 +34,7 @@ class Utils {
                 localizedDescription = "You are not connected to the internet. Please try again when your internet connection returns."
                 
             case NSURLErrorBadServerResponse:
-                code = DataFetchErrorConsts.DataCodes.toRaw(.ServerError)()
+                code = DataFetchErrorConsts.DataCodes.ServerError.rawValue
                 localizedDescription = "There appears to be something wrong with the data we are getting back from the server. Please try again later."
                 
             case NSURLErrorCallIsActive:
@@ -67,20 +67,20 @@ class Utils {
         var localizedDescription: String
         
         switch response.statusCode {
-        case DataFetchErrorConsts.DataCodes.toRaw(.BadRequest)():
-            code = DataFetchErrorConsts.DataCodes.toRaw(.BadRequest)()
+        case DataFetchErrorConsts.DataCodes.BadRequest.rawValue:
+            code = DataFetchErrorConsts.DataCodes.BadRequest.rawValue
             localizedDescription = "Bad request - you may have missing or invalid parameters"
             
-        case DataFetchErrorConsts.DataCodes.toRaw(.Unauthorized)():
-            code = DataFetchErrorConsts.DataCodes.toRaw(.Unauthorized)()
+        case DataFetchErrorConsts.DataCodes.Unauthorized.rawValue:
+            code = DataFetchErrorConsts.DataCodes.Unauthorized.rawValue
             localizedDescription = "Unauthorized - invalid API key"
             
-        case DataFetchErrorConsts.DataCodes.toRaw(.NotFound)():
-            code = DataFetchErrorConsts.DataCodes.toRaw(.NotFound)()
+        case DataFetchErrorConsts.DataCodes.NotFound.rawValue:
+            code = DataFetchErrorConsts.DataCodes.NotFound.rawValue
             localizedDescription = "Not found - Requested resource not found"
             
-        case DataFetchErrorConsts.DataCodes.toRaw(.ServerError)():
-            code = DataFetchErrorConsts.DataCodes.toRaw(.ServerError)()
+        case DataFetchErrorConsts.DataCodes.ServerError.rawValue:
+            code = DataFetchErrorConsts.DataCodes.ServerError.rawValue
             localizedDescription = "There appears to be something wrong with the data we are getting back from the server, or the data you are looking for was not found. Please try again later."
             
         default:
