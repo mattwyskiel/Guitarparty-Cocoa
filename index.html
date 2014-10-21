@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Guitarparty-Cocoa by mattwyskiel</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Guitarparty-Cocoa</h1>
+        <p>A client library for guitarparty.com, written in Swift, for iOS and OS X</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/mattwyskiel/Guitarparty-Cocoa" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/mattwyskiel/Guitarparty-Cocoa/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/mattwyskiel/Guitarparty-Cocoa/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <p><img src="http://guitarparty-static-media.s3.amazonaws.com/images/v3/body/logo.6329ffbed64d.png" alt="Guitarparty Logo"></p>
+
+<h1>
+<a name="welcome" class="anchor" href="#welcome"><span class="octicon octicon-link"></span></a>Welcome.</h1>
+
+<p>Welcome to the <strong>Guitarparty iOS and OS X Client Library</strong>. This library enables developers to access the plethora of chords and tabs in the <a href="http://www.guitarparty.com">Guitarparty.com</a> database.</p>
+
+<p>I wrote this library in the midst of my exploration of the new Swift language developed by Apple. So enjoy, catch bugs, submit pull requests, and make use of this library as much as you need.</p>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li><p><strong>Xcode 6.1</strong> (<em>works beautifully with Swift 1.1; I will update whenever Swift changes and recompile to make sure everything works.</em>)</p></li>
+<li>
+<p><strong>iOS 8+</strong> (<em>Dynamic frameworks will not compile on anything lower.</em>)</p>
+
+<p><em>or:</em></p>
+</li>
+<li>
+<strong>OS X 10.9+</strong> (<em>Swift is compatible with as early as Mavericks</em>)</li>
+</ul>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>To quote <a href="https://github.com/mattt">Mattt Thompson</a>:</p>
+
+<blockquote>
+<p>The infrastructure and best practices for distributing Swift libraries is currently in flux during this beta period of the language and Xcode.</p>
+</blockquote>
+
+<p>So, because of this, what should you do? I recommend adding the Guitarparty repository as a git submodule (an example of which is at the beginning of <a href="https://github.com/RestKit/RestKit/wiki/Installing-RestKit-v0.20.x-as-a-Git-Submodule" title="Adding RestKit as a Git Submodule">this article</a>) and then adding Guitarparty.xcodeproj as a subproject to your Xcode project. Then link either the <strong>Guitarparty.framework</strong> (iOS) or <strong>GuitarpartyOSX.framework</strong> (OS X) to your app target.</p>
+
+<h2>
+<a name="api-key" class="anchor" href="#api-key"><span class="octicon octicon-link"></span></a>API Key</h2>
+
+<p><strong>Before you do anything else with this library,</strong> you need to grab an API key from <a href="http://www.guitarparty.com/developers/api-key/">http://www.guitarparty.com/developers/api-key/</a></p>
+
+<p>Then call the Guitarparty class's setAPIKey() method to set the API Key for all requests:</p>
+
+<p><strong>Swift</strong></p>
+
+<div class="highlight highlight-swift"><pre>    <span class="n">Guitarparty</span><span class="p">.</span><span class="n">setAPIKey</span><span class="p">(</span><span class="s">"{API_KEY}"</span><span class="p">)</span>
+</pre></div>
+
+<p><strong>Objective-C</strong></p>
+
+<div class="highlight highlight-obj-c"><pre>    <span class="p">[</span><span class="n">Guitarparty</span> <span class="nl">setAPIKey</span><span class="p">:</span><span class="s">@"{API_KEY}"</span><span class="p">];</span>
+</pre></div>
+
+<h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<p>This library contains <strong>4 Object Categories</strong>:</p>
+
+<ul>
+<li><a href="http://www.guitarparty.com/developers/api-docs/api-resources/songs/">Songs</a></li>
+<li><a href="http://www.guitarparty.com/developers/api-docs/api-resources/artists/">Artists</a></li>
+<li><a href="http://www.guitarparty.com/developers/api-docs/api-resources/parties/">Parties</a></li>
+<li><a href="http://www.guitarparty.com/developers/api-docs/api-resources/chords/">Chords</a></li>
+</ul>
+
+<p>Each category contains the <strong>object</strong> itself, a <strong>list</strong> object, and a <strong>fetcher</strong> object with the possible ways to query the object category.</p>
+
+<p>For example, here's how to search for songs with a query string: </p>
+
+<p><strong>Swift:</strong></p>
+
+<div class="highlight highlight-swift"><pre><span class="n">SongFetcher</span><span class="p">.</span><span class="n">searchForSongs</span><span class="p">(</span><span class="nl">query</span><span class="p">:</span> <span class="s">"Jolene"</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="nl">results</span><span class="p">:</span> <span class="n">SongList</span><span class="o">?</span><span class="p">,</span> <span class="nl">error</span><span class="p">:</span> <span class="bp">NSError</span><span class="o">?</span><span class="p">)</span> <span class="k">in</span>
+            <span class="k">if</span> <span class="n">error</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="p">{</span>
+                <span class="c1">// Handle error here</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="n">results</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="p">{</span> <span class="c1">// Check to make sure there is in fact a song list</span>
+                    <span class="nb">self</span><span class="p">.</span><span class="n">songList</span> <span class="o">=</span> <span class="n">results</span><span class="o">!</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>   
+</pre></div>
+
+<p><strong>Objective-C</strong></p>
+
+<div class="highlight highlight-obj-c"><pre><span class="p">[</span><span class="n">SongFetcher</span> <span class="nl">searchForSongsWithQuery</span><span class="p">:</span><span class="s">@"Jolene"</span> <span class="nl">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">SongList</span> <span class="o">*</span><span class="n">results</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Handle error here</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Check to make sure there is in fact a song list</span>
+                <span class="nb">self</span><span class="p">.</span><span class="n">songList</span> <span class="o">=</span> <span class="n">results</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}];</span>
+</pre></div>
+
+<h2>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<p>This library is well-documented using the standard in-line documentation methods. So quick-looking any symbol in this SDK will give you documentation for that item.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright 2014 Matthew Wyskiel</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/mattwyskiel">mattwyskiel</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
