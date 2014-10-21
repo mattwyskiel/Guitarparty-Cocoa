@@ -12,7 +12,6 @@ I wrote this library in the midst of my exploration of the new Swift language de
 - **iOS 8+** (*Dynamic frameworks will not compile on anything lower.*)
 
 	*or:*
-
 - **OS X 10.9+** (*Swift is compatible with as early as Mavericks*)
 
 ## Installation
