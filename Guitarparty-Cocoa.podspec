@@ -17,4 +17,5 @@ I wrote this library in the midst of my exploration of the new Swift language de
   s.source_files  = "Guitarparty/*.{swift}"
   s.weak_framework  = "Foundation"
   s.requires_arc = true
+  s.module_name = "Guitarparty"
 end
