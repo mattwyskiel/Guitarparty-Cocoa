@@ -15,10 +15,12 @@ I wrote this library in the midst of my exploration of the new Swift language de
 - **OS X 10.9+** (*Swift is compatible with as early as Mavericks*)
 
 ## Installation
-To quote [Mattt Thompson](https://github.com/mattt):
-> The infrastructure and best practices for distributing Swift libraries is currently in flux during this beta period of the language and Xcode.
+Use CocoaPods:
+```ruby
+   pod 'Guitarparty-Cocoa'
+```
 
-So, because of this, what should you do? I recommend adding the Guitarparty repository as a git submodule (an example of which is at the beginning of [this article](https://github.com/RestKit/RestKit/wiki/Installing-RestKit-v0.20.x-as-a-Git-Submodule "Adding RestKit as a Git Submodule")) and then adding Guitarparty.xcodeproj as a subproject to your Xcode project. Then link either the **Guitarparty.framework** (iOS) or **GuitarpartyOSX.framework** (OS X) to your app target.
+Run `pod install` and then import using `import Guitarparty` in Swift or `@import Guitarparty;` in Objective-C.
 
 ## API Key
 **Before you do anything else with this library,** you need to grab an API key from http://www.guitarparty.com/developers/api-key/
