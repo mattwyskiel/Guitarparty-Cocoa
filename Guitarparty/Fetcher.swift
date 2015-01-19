@@ -35,8 +35,8 @@ public class Fetcher {
             let bodyData = NSJSONSerialization.dataWithJSONObject(body!, options: NSJSONWritingOptions(0), error: nil)
         }
         
-        if Guitarparty.APIConstant.apiKey != nil {
-            urlRequest.setValue(Guitarparty.APIConstant.apiKey!, forHTTPHeaderField: "Guitarparty-Api-Key")
+        if let apiKey = Guitarparty.sharedInstance.apiKey {
+            urlRequest.setValue(apiKey, forHTTPHeaderField: "Guitarparty-Api-Key")
         } else {
             fatalError("No API key has been set. The request cannot be completed. \nSet the API Key using Guitarparty.setAPIKey(key: String)")
         }

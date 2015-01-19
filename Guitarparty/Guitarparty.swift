@@ -10,9 +10,14 @@ import Foundation
 
 @objc public class Guitarparty {
     
-    struct APIConstant {
-        static var apiKey: String?
+    class var sharedInstance: Guitarparty {
+        struct Static {
+            static let instance: Guitarparty = Guitarparty()
+        }
+        return Static.instance
     }
+    
+    var apiKey: String?
     
     /**
         Set the API key to authenticate API requests.
@@ -22,6 +27,6 @@ import Foundation
         :param: key The API key to pass to the API.
     */
     public class func setAPIKey(key: String) {
-        APIConstant.apiKey = key
+        Guitarparty.sharedInstance.apiKey = key
     }
 }
