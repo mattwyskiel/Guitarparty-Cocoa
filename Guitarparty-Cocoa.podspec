@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Guitarparty-Cocoa"
-  s.version      = "0.0.5"
+  s.version      = "0.0.6"
   s.summary      = "A client library for guitarparty.com, written in Swift, for iOS and OS X"
   s.description  = <<-DESC
                    Welcome to the **Guitarparty iOS and OS X Client Library**. This library enables developers to access the plethora of chords and tabs in the [Guitarparty.com](http://www.guitarparty.com) database.
