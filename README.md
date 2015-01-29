@@ -17,7 +17,7 @@ I wrote this library in the midst of my exploration of the new Swift language de
 ## Installation
 Use CocoaPods:
 ```ruby
-   pod 'Guitarparty-Cocoa'
+pod 'Guitarparty-Cocoa'
 ```
 
 Run `pod install` and then import using `import Guitarparty` in Swift or `@import Guitarparty;` in Objective-C.
@@ -30,13 +30,13 @@ Then call the Guitarparty class's setAPIKey() method to set the API Key for all 
 **Swift**
 
 ```swift
-	Guitarparty.setAPIKey("{API_KEY}")
+Guitarparty.setAPIKey("{API_KEY}")
 ```
 
 **Objective-C**
 
 ```obj-c
-	[Guitarparty setAPIKey:@"{API_KEY}"];
+[Guitarparty setAPIKey:@"{API_KEY}"];
 ```
 
 ## How to use
