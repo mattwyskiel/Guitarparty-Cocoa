@@ -16,7 +16,7 @@ public final class ArtistList: ModelObjectCollection, ArrayLiteralConvertible {
 
     required public init(jsonDictionary: [String : AnyObject]) {
         let objectsArrayAnyObject: AnyObject? = jsonDictionary[objectsKey]
-        let objectDictsArray = objectsArrayAnyObject as [[String: AnyObject]]
+        let objectDictsArray = objectsArrayAnyObject as! [[String: AnyObject]]
         for songObject in objectDictsArray {
             let artist = Artist(jsonDictionary: songObject)
             objects.append(artist)
@@ -24,7 +24,7 @@ public final class ArtistList: ModelObjectCollection, ArrayLiteralConvertible {
     }
     
     required public init(coder aDecoder: NSCoder) {
-        objects = aDecoder.decodeObjectForKey(objectsKey) as [Artist]
+        objects = aDecoder.decodeObjectForKey(objectsKey) as! [Artist]
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {

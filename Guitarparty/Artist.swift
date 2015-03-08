@@ -28,17 +28,17 @@ public class Artist: ModelObject {
     required public init(jsonDictionary: [String : AnyObject]) {
         let jsonNSDict = jsonDictionary as NSDictionary
         
-        bio = jsonNSDict.objectForKey(bioKey) as String
-        name = jsonNSDict.objectForKey(nameKey) as String
-        slug = jsonNSDict.objectForKey(slugKey) as String
-        uri = jsonNSDict.objectForKey(uriKey) as String
+        bio = jsonNSDict.objectForKey(bioKey) as! String
+        name = jsonNSDict.objectForKey(nameKey) as! String
+        slug = jsonNSDict.objectForKey(slugKey) as! String
+        uri = jsonNSDict.objectForKey(uriKey) as! String
     }
     
     required public init(coder aDecoder: NSCoder) {
-        bio = aDecoder.decodeObjectForKey(bioKey) as String
-        name = aDecoder.decodeObjectForKey(nameKey) as String
-        slug = aDecoder.decodeObjectForKey(slugKey) as String
-        uri = aDecoder.decodeObjectForKey(uriKey) as String
+        bio = aDecoder.decodeObjectForKey(bioKey) as! String
+        name = aDecoder.decodeObjectForKey(nameKey) as! String
+        slug = aDecoder.decodeObjectForKey(slugKey) as! String
+        uri = aDecoder.decodeObjectForKey(uriKey) as! String
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {

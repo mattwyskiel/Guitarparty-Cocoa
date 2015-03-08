@@ -51,7 +51,7 @@ public class Fetcher {
             }
             
             var jsonError: NSError?
-            let jsonDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &jsonError) as [String:String]
+            let jsonDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &jsonError) as! [String:String]
             
             if jsonError != nil {
                 completionHandler(jsonDict: nil, error: jsonError)
@@ -59,7 +59,7 @@ public class Fetcher {
             }
             
             if jsonDict["error"] != nil {
-                let httpResponse = response as NSHTTPURLResponse
+                let httpResponse = response as! NSHTTPURLResponse
                 let errorNotError = Utils.customError(forResponse: httpResponse)
                 completionHandler(jsonDict: nil, error: errorNotError)
                 return
@@ -68,12 +68,6 @@ public class Fetcher {
             completionHandler(jsonDict: jsonDict, error: nil)
         }
         
-    }
-    
-    class func performRequest(#endpoint: String, method: FetcherRequestMethod, completionHandler: (jsonDict: [String: AnyObject]?, error: NSError?) -> ()) {
-        performRequest(endpoint: endpoint, method: method, body: nil) { (jsonDict, error) -> () in
-            completionHandler(jsonDict: jsonDict, error: error)
-        }
     }
     
 }

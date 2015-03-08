@@ -31,25 +31,25 @@ public class Chord: ModelObject {
     public required init(jsonDictionary: [String:AnyObject]) {
         let jsonNSDict = jsonDictionary as NSDictionary
         
-        code = jsonNSDict.objectForKey(codeKey) as String
+        code = jsonNSDict.objectForKey(codeKey) as! String
         
-        let imgUrlString = jsonNSDict.objectForKey(imageUrlKey) as String
+        let imgUrlString = jsonNSDict.objectForKey(imageUrlKey) as! String
         imageUrl = NSURL(string: imgUrlString)!
         
-        let instrumentDictionary = jsonNSDict.objectForKey(instrumentKey) as [String:AnyObject]
+        let instrumentDictionary = jsonNSDict.objectForKey(instrumentKey) as! [String:AnyObject]
         instrument = Instrument(jsonDictionary: instrumentDictionary)
         
-        name = jsonNSDict.objectForKey(nameKey) as String
+        name = jsonNSDict.objectForKey(nameKey) as! String
         
-        uri = jsonNSDict.objectForKey(uriKey) as String
+        uri = jsonNSDict.objectForKey(uriKey) as! String
     }
     
     public required init(coder aDecoder: NSCoder) {
-        code = aDecoder.decodeObjectForKey(codeKey) as String
-        imageUrl = aDecoder.decodeObjectForKey(imageUrlKey) as NSURL
-        instrument = aDecoder.decodeObjectForKey(instrumentKey) as Instrument
-        name = aDecoder.decodeObjectForKey(nameKey) as String
-        uri = aDecoder.decodeObjectForKey(uriKey) as String
+        code = aDecoder.decodeObjectForKey(codeKey) as! String
+        imageUrl = aDecoder.decodeObjectForKey(imageUrlKey) as! NSURL
+        instrument = aDecoder.decodeObjectForKey(instrumentKey) as! Instrument
+        name = aDecoder.decodeObjectForKey(nameKey) as! String
+        uri = aDecoder.decodeObjectForKey(uriKey) as! String
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {
@@ -80,15 +80,15 @@ public class Instrument: ModelObject {
     required public init(jsonDictionary: [String : AnyObject]) {
         let jsonNSDict = jsonDictionary as NSDictionary
         
-        name = jsonNSDict.objectForKey(nameKey) as String
-        safeName = jsonNSDict.objectForKey(safeNameKey) as String
-        tuning = jsonNSDict.objectForKey(tuningKey) as String
+        name = jsonNSDict.objectForKey(nameKey) as! String
+        safeName = jsonNSDict.objectForKey(safeNameKey) as! String
+        tuning = jsonNSDict.objectForKey(tuningKey) as! String
     }
     
     required public init(coder aDecoder: NSCoder) {
-        name = aDecoder.decodeObjectForKey(nameKey) as String
-        safeName = aDecoder.decodeObjectForKey(safeNameKey) as String
-        tuning = aDecoder.decodeObjectForKey(tuningKey) as String
+        name = aDecoder.decodeObjectForKey(nameKey) as! String
+        safeName = aDecoder.decodeObjectForKey(safeNameKey) as! String
+        tuning = aDecoder.decodeObjectForKey(tuningKey) as! String
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {

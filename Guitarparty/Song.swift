@@ -44,16 +44,16 @@ public class Song: ModelObject {
     let uriKey = "uri"
     
     required public init(coder aDecoder: NSCoder) {
-        authors = aDecoder.decodeObjectForKey(authorsKey) as [Author]
-        body = aDecoder.decodeObjectForKey(bodyKey) as String
-        htmlBody = aDecoder.decodeObjectForKey(htmlBodyKey) as String
-        strippedBody = aDecoder.decodeObjectForKey(strippedBodyKey) as String
-        chords = aDecoder.decodeObjectForKey(chordsKey) as [Chord]
-        id = aDecoder.decodeObjectForKey(idKey) as Int
-        permalink = aDecoder.decodeObjectForKey(permalinkKey) as NSURL
-        tags = aDecoder.decodeObjectForKey(tagsKey) as [String]
-        title = aDecoder.decodeObjectForKey(titleKey) as String
-        uri = aDecoder.decodeObjectForKey(uriKey) as String
+        authors = aDecoder.decodeObjectForKey(authorsKey) as! [Author]
+        body = aDecoder.decodeObjectForKey(bodyKey) as! String
+        htmlBody = aDecoder.decodeObjectForKey(htmlBodyKey) as! String
+        strippedBody = aDecoder.decodeObjectForKey(strippedBodyKey) as! String
+        chords = aDecoder.decodeObjectForKey(chordsKey) as! [Chord]
+        id = aDecoder.decodeObjectForKey(idKey) as! Int
+        permalink = aDecoder.decodeObjectForKey(permalinkKey) as! NSURL
+        tags = aDecoder.decodeObjectForKey(tagsKey) as! [String]
+        title = aDecoder.decodeObjectForKey(titleKey) as! String
+        uri = aDecoder.decodeObjectForKey(uriKey) as! String
     }
     
     required public init(jsonDictionary: [String : AnyObject]) {
@@ -61,29 +61,29 @@ public class Song: ModelObject {
         
         // Get author array set up
         authors = []
-        let authorDictArray = jsonNSDict.objectForKey(authorsKey) as Array<[String: AnyObject]>
+        let authorDictArray = jsonNSDict.objectForKey(authorsKey) as! Array<[String: AnyObject]>
         for authorDict in authorDictArray {
             let author = Author(jsonDictionary: authorDict)
             authors.append(author)
         }
         
-        body = jsonNSDict.objectForKey(bodyKey) as String
-        htmlBody = jsonNSDict.objectForKey(htmlBodyKey) as String
-        strippedBody = jsonNSDict.objectForKey(strippedBodyKey) as String
+        body = jsonNSDict.objectForKey(bodyKey) as! String
+        htmlBody = jsonNSDict.objectForKey(htmlBodyKey) as! String
+        strippedBody = jsonNSDict.objectForKey(strippedBodyKey) as! String
         
         // Get chord array set up
         chords = []
-        let chordDictArray = jsonNSDict.objectForKey(authorsKey) as Array<[String: AnyObject]>
+        let chordDictArray = jsonNSDict.objectForKey(authorsKey) as! Array<[String: AnyObject]>
         for chordDict in authorDictArray {
             let chord = Chord(jsonDictionary: chordDict)
             chords.append(chord)
         }
         
-        id = jsonNSDict.objectForKey(idKey) as Int
-        permalink = NSURL(string: jsonNSDict.objectForKey(permalinkKey) as String)!
-        tags = jsonNSDict.objectForKey(tagsKey) as [String]
-        title = jsonNSDict.objectForKey(titleKey) as String
-        uri = jsonNSDict.objectForKey(uriKey) as String
+        id = jsonNSDict.objectForKey(idKey) as! Int
+        permalink = NSURL(string: jsonNSDict.objectForKey(permalinkKey) as! String)!
+        tags = jsonNSDict.objectForKey(tagsKey) as! [String]
+        title = jsonNSDict.objectForKey(titleKey) as! String
+        uri = jsonNSDict.objectForKey(uriKey) as! String
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {
@@ -114,17 +114,17 @@ public class Song: ModelObject {
         let uriKey = "uri"
         
         required public init(coder aDecoder: NSCoder) {
-            name = aDecoder.decodeObjectForKey(nameKey) as String
-            types = aDecoder.decodeObjectForKey(typesKey) as [String]
-            uri = aDecoder.decodeObjectForKey(uriKey) as String
+            name = aDecoder.decodeObjectForKey(nameKey) as! String
+            types = aDecoder.decodeObjectForKey(typesKey) as! [String]
+            uri = aDecoder.decodeObjectForKey(uriKey) as! String
         }
         
         required public init(jsonDictionary: [String : AnyObject]) {
             let jsonNSDict = jsonDictionary as NSDictionary
             
-            name = jsonNSDict.objectForKey(nameKey) as String
-            types = jsonNSDict.objectForKey(typesKey) as [String]
-            uri = jsonNSDict.objectForKey(uriKey) as String
+            name = jsonNSDict.objectForKey(nameKey) as! String
+            types = jsonNSDict.objectForKey(typesKey) as! [String]
+            uri = jsonNSDict.objectForKey(uriKey) as! String
         }
         
         public func encodeWithCoder(aCoder: NSCoder) {

@@ -16,7 +16,7 @@ public final class ChordList : ModelObjectCollection, ArrayLiteralConvertible {
     
     required public init(jsonDictionary: [String : AnyObject]) {
         let objectsArrayAnyObject: AnyObject? = jsonDictionary[objectsKey]
-        let objectDictsArray = objectsArrayAnyObject as [[String: AnyObject]]
+        let objectDictsArray = objectsArrayAnyObject as! [[String: AnyObject]]
         for chordObject in objectDictsArray {
             let chord = Chord(jsonDictionary: chordObject)
             objects.append(chord)
@@ -24,7 +24,7 @@ public final class ChordList : ModelObjectCollection, ArrayLiteralConvertible {
     }
     
     required public init(coder aDecoder: NSCoder) {
-        objects = aDecoder.decodeObjectForKey(objectsKey) as [Chord]
+        objects = aDecoder.decodeObjectForKey(objectsKey) as! [Chord]
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {

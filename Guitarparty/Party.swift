@@ -30,16 +30,16 @@ public class Party: ModelObject {
     public required init(jsonDictionary: [String : AnyObject]) {
         let jsonNSDict = jsonDictionary as NSDictionary
         
-        currentSongId = jsonNSDict.objectForKey(currentSongKey) as Int?
-        description = jsonNSDict.objectForKey(descriptionKey) as String?
+        currentSongId = jsonNSDict.objectForKey(currentSongKey) as! Int?
+        description = jsonNSDict.objectForKey(descriptionKey) as! String?
         
-        let urlString = jsonNSDict.objectForKey(urlKey) as String
+        let urlString = jsonNSDict.objectForKey(urlKey) as! String
         url = NSURL(string: urlString)!
         
-        shortCode = jsonNSDict.objectForKey(shortCodeKey) as String
-        songCount = jsonNSDict.objectForKey(songCountKey) as Int
-        title = jsonNSDict.objectForKey(titleKey) as String
-        uri = jsonNSDict.objectForKey(uriKey) as String
+        shortCode = jsonNSDict.objectForKey(shortCodeKey) as! String
+        songCount = jsonNSDict.objectForKey(songCountKey) as! Int
+        title = jsonNSDict.objectForKey(titleKey) as! String
+        uri = jsonNSDict.objectForKey(uriKey) as! String
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {
@@ -58,12 +58,12 @@ public class Party: ModelObject {
     }
     
     public required init(coder aDecoder: NSCoder) {
-        currentSongId = aDecoder.decodeObjectForKey(currentSongKey) as Int?
-        description = aDecoder.decodeObjectForKey(descriptionKey) as String?
-        url = aDecoder.decodeObjectForKey(urlKey) as NSURL
-        shortCode = aDecoder.decodeObjectForKey(shortCodeKey) as String
-        songCount = aDecoder.decodeObjectForKey(songCountKey) as Int
-        title = aDecoder.decodeObjectForKey(titleKey) as String
-        uri = aDecoder.decodeObjectForKey(uriKey) as String
+        currentSongId = aDecoder.decodeObjectForKey(currentSongKey) as! Int?
+        description = aDecoder.decodeObjectForKey(descriptionKey) as! String?
+        url = aDecoder.decodeObjectForKey(urlKey) as! NSURL
+        shortCode = aDecoder.decodeObjectForKey(shortCodeKey) as! String
+        songCount = aDecoder.decodeObjectForKey(songCountKey) as! Int
+        title = aDecoder.decodeObjectForKey(titleKey) as! String
+        uri = aDecoder.decodeObjectForKey(uriKey) as! String
     }
 }

@@ -147,8 +147,8 @@ public class PartyFetcher: Fetcher {
     init(jsonDictionary: [String: AnyObject]) {
         let jsonNSDict = jsonDictionary as NSDictionary
         
-        title = jsonNSDict.objectForKey("title") as String
-        content = jsonNSDict.objectForKey("content") as String
+        title = jsonNSDict.objectForKey("title") as! String
+        content = jsonNSDict.objectForKey("content") as! String
     }
     
     func toJSONDict() -> [String: AnyObject] {

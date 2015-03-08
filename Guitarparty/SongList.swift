@@ -30,7 +30,7 @@ public final class SongList: ModelObjectCollection, ArrayLiteralConvertible {
     
     public required init(jsonDictionary: [String : AnyObject]) {
         let objectsArrayAnyObject: AnyObject? = jsonDictionary[objectsKey]
-        let objectDictsArray = objectsArrayAnyObject as [[String: AnyObject]]
+        let objectDictsArray = objectsArrayAnyObject as! [[String: AnyObject]]
         for songObject in objectDictsArray {
             let song = Song(jsonDictionary: songObject)
             objects.append(song)
@@ -38,7 +38,7 @@ public final class SongList: ModelObjectCollection, ArrayLiteralConvertible {
     }
     
     public required init(coder aDecoder: NSCoder) {
-        objects = aDecoder.decodeObjectForKey(objectsKey) as [Song]
+        objects = aDecoder.decodeObjectForKey(objectsKey) as! [Song]
     }
    
     public func encodeWithCoder(aCoder: NSCoder) {
