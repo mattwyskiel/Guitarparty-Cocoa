@@ -1,12 +1,12 @@
 ![Guitarparty Logo](http://guitarparty-static-media.s3.amazonaws.com/images/v3/body/logo.6329ffbed64d.png)
 
-# Welcome. 
+# Welcome.
 Welcome to the **Guitarparty iOS and OS X Client Library**. This library enables developers to access the plethora of chords and tabs in the [Guitarparty.com](http://www.guitarparty.com) database.
 
 I wrote this library in the midst of my exploration of the new Swift language developed by Apple. So enjoy, catch bugs, submit pull requests, and make use of this library as much as you need.
 
 ## Requirements
-- **Xcode 6.1** (*works beautifully with Swift 1.1; I will update whenever Swift changes and recompile to make sure everything works.*)
+- **Xcode 6.3** (*works beautifully with Swift 1.2; I will update whenever Swift changes and recompile to make sure everything works.*)
 
 
 - **iOS 8+** (*Dynamic frameworks will not compile on anything lower.*)
@@ -50,7 +50,7 @@ This library contains **4 Object Categories**:
 
 Each category contains the **object** itself, a **list** object, and a **fetcher** object with the possible ways to query the object category.
 
-For example, here's how to search for songs with a query string: 
+For example, here's how to search for songs with a query string:
 
 **Swift:**
 
@@ -63,7 +63,7 @@ SongFetcher.searchForSongs(query: "Jolene") { (results: SongList?, error: NSErro
                     self.songList = results!
                 }
             }
-        }   
+        }
 ```
 
 **Objective-C**
