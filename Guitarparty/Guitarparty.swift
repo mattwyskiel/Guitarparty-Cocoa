@@ -24,7 +24,7 @@ import Foundation
         
         This is absolutely required to use this API.
     
-        :param: key The API key to pass to the API.
+        - parameter key: The API key to pass to the API.
     */
     public class func setAPIKey(key: String) {
         Guitarparty.sharedInstance.apiKey = key

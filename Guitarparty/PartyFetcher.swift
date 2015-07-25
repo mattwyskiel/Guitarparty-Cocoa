@@ -15,11 +15,11 @@ public class PartyFetcher: Fetcher {
     
     Creates a party. A Party on the Guitarparty.com platform is essentially a real-time channel which can be used to sync lyrics and chords to multiple users. While this is still a highly experimental feature we are most excited about this part of our system.
     
-    :param: requestBody The request body to be provided with the request. The only required property on this object is the title
-    :param: completionHandler The completion handler, which is passed the Party which was created and an error object. Both are optional values and it's either one or the other.
+    - parameter requestBody: The request body to be provided with the request. The only required property on this object is the title
+    - parameter completionHandler: The completion handler, which is passed the Party which was created and an error object. Both are optional values and it's either one or the other.
     
     */
-    public class func createParty(#requestBody: PartyPOSTRequestBody, completionHandler: (result: Party?, error: NSError?) -> ()) {
+    public class func createParty(requestBody requestBody: PartyPOSTRequestBody, completionHandler: (result: Party?, error: NSError?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/parties/", method: .POST, body: requestBody.toJSONDict()) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(result: nil, error: error!)
@@ -37,12 +37,12 @@ public class PartyFetcher: Fetcher {
     
     Updates a party. A Party on the Guitarparty.com platform is essentially a real-time channel which can be used to sync lyrics and chords to multiple users. While this is still a highly experimental feature we are most excited about this part of our system.
     
-    :param: partyURI The uri of the party being updated
-    :param: requestBody The request body to be provided with the request. There are no required parameters
-    :param: completionHandler The completion handler, which is passed the Party which was updated and an error object. Both are optional values and it's either one or the other.
+    - parameter partyURI: The uri of the party being updated
+    - parameter requestBody: The request body to be provided with the request. There are no required parameters
+    - parameter completionHandler: The completion handler, which is passed the Party which was updated and an error object. Both are optional values and it's either one or the other.
     
     */
-    public class func updateParty(#partyURI: String, requestBody: PartyPUTRequestBody, completionHandler: (result: Party?, error: NSError?) -> ()) {
+    public class func updateParty(partyURI partyURI: String, requestBody: PartyPUTRequestBody, completionHandler: (result: Party?, error: NSError?) -> ()) {
         Fetcher.performRequest(endpoint: partyURI, method: .PUT, body: requestBody.toJSONDict()) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(result: nil, error: error!)
@@ -60,9 +60,9 @@ public class PartyFetcher: Fetcher {
     
     Updates a party. A Party on the Guitarparty.com platform is essentially a real-time channel which can be used to sync lyrics and chords to multiple users. While this is still a highly experimental feature we are most excited about this part of our system.
     
-    :param: partyId The id of the party being updated
-    :param: requestBody The request body to be provided with the request. There are no required parameters
-    :param: completionHandler The completion handler, which is passed the Party which was updated and an error object. Both are optional values and it's either one or the other.
+    - parameter partyId: The id of the party being updated
+    - parameter requestBody: The request body to be provided with the request. There are no required parameters
+    - parameter completionHandler: The completion handler, which is passed the Party which was updated and an error object. Both are optional values and it's either one or the other.
     
     */
     public class func updateParty(id partyId: String, requestBody: PartyPUTRequestBody, completionHandler: (result: Party?, error: NSError?) -> ()) {
@@ -83,8 +83,8 @@ public class PartyFetcher: Fetcher {
     
     Gets a list of songs in a party
     
-    :param: partyId The id of the party being updated
-    :param: completionHandler The completion handler, which is passed a SongList of songs in the party and an error object. Both are optional values and it's either one or the other.
+    - parameter partyId: The id of the party being updated
+    - parameter completionHandler: The completion handler, which is passed a SongList of songs in the party and an error object. Both are optional values and it's either one or the other.
     
     */
     public class func getListOfSongsInParty(id partyId: String, completionHandler: (result: SongList?, error: NSError?) -> ()) {
@@ -105,9 +105,9 @@ public class PartyFetcher: Fetcher {
     
     Posts a message to a given party
     
-    :param: message The message to be sent
-    :param: partyId The id of the party being updated
-    :param: completionHandler The completion handler, which is passed a SongList of songs in the party and an error object. Both are optional values and it's either one or the other. Since messages are a one-time event in our system, they are considered volatile and you do not get a reference to the message you created.
+    - parameter message: The message to be sent
+    - parameter partyId: The id of the party being updated
+    - parameter completionHandler: The completion handler, which is passed a SongList of songs in the party and an error object. Both are optional values and it's either one or the other. Since messages are a one-time event in our system, they are considered volatile and you do not get a reference to the message you created.
     
     */
     public class func postMessage(message: PartyMessage, toParty partyId: String, completionHandler: (result: PartyMessage?, error: NSError?) -> ()) {
@@ -135,8 +135,8 @@ public class PartyFetcher: Fetcher {
     
     Designated initializer for the PartyMessage object
     
-    :param: title The title of the message
-    :param: content The content of the message
+    - parameter title: The title of the message
+    - parameter content: The content of the message
     
     */
     public init(title: String, content: String) {
@@ -173,7 +173,7 @@ public class PartyFetcher: Fetcher {
     
     Designated initializer for the PartyPOSTRequestBody object
     
-    :param: title The title of the message
+    - parameter title: The title of the message
     
     */
     public init(title: String) {

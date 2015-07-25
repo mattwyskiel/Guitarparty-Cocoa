@@ -44,7 +44,7 @@ public class Chord: ModelObject {
         uri = jsonNSDict.objectForKey(uriKey) as! String
     }
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         code = aDecoder.decodeObjectForKey(codeKey) as! String
         imageUrl = aDecoder.decodeObjectForKey(imageUrlKey) as! NSURL
         instrument = aDecoder.decodeObjectForKey(instrumentKey) as! Instrument
@@ -85,7 +85,7 @@ public class Instrument: ModelObject {
         tuning = jsonNSDict.objectForKey(tuningKey) as! String
     }
     
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObjectForKey(nameKey) as! String
         safeName = aDecoder.decodeObjectForKey(safeNameKey) as! String
         tuning = aDecoder.decodeObjectForKey(tuningKey) as! String

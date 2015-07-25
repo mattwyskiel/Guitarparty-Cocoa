@@ -37,7 +37,7 @@ public final class SongList: ModelObjectCollection, ArrayLiteralConvertible {
         }
     }
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         objects = aDecoder.decodeObjectForKey(objectsKey) as! [Song]
     }
    

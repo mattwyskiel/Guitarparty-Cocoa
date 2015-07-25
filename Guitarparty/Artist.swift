@@ -34,7 +34,7 @@ public class Artist: ModelObject {
         uri = jsonNSDict.objectForKey(uriKey) as! String
     }
     
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         bio = aDecoder.decodeObjectForKey(bioKey) as! String
         name = aDecoder.decodeObjectForKey(nameKey) as! String
         slug = aDecoder.decodeObjectForKey(slugKey) as! String

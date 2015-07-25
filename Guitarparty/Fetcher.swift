@@ -21,18 +21,23 @@ public class Fetcher {
     /**
         Makes an internet request to the Guitarparty API
     
-        :param: endpoint The endpoint to call to. Remember to start the endpoint with '/v2' and end with a trailing slash ('/')
-        :param: method The HTTP request method to use.
-        :param: body (optional) An HTTP body dictionary
-        :param: completionHandler A block/closure to be called after the request completes.
+        - parameter endpoint: The endpoint to call to. Remember to start the endpoint with '/v2' and end with a trailing slash ('/')
+        - parameter method: The HTTP request method to use.
+        - parameter body: (optional) An HTTP body dictionary
+        - parameter completionHandler: A block/closure to be called after the request completes.
     */
-    class func performRequest(#endpoint: String, method: FetcherRequestMethod, body: [String:AnyObject]? = nil, completionHandler: (jsonDict: [String: AnyObject]?, error: NSError?) -> ()) {
+    class func performRequest(endpoint endpoint: String, method: FetcherRequestMethod, body: [String:AnyObject]? = nil, completionHandler: (jsonDict: [String: AnyObject]?, error: ErrorType?) -> ()) {
         let urlString = "http://api.guitarparty.com\(endpoint)"
         let urlRequest = NSMutableURLRequest(URL: NSURL(string: urlString)!)
         urlRequest.HTTPMethod = method.rawValue
         
+        
         if body != nil {
-            let bodyData = NSJSONSerialization.dataWithJSONObject(body!, options: NSJSONWritingOptions(0), error: nil)
+            do {
+                urlRequest.HTTPBody = try NSJSONSerialization.dataWithJSONObject(body!, options: NSJSONWritingOptions(rawValue: 0))
+            } catch _ {
+                
+            }
         }
         
         if let apiKey = Guitarparty.sharedInstance.apiKey {
@@ -43,18 +48,18 @@ public class Fetcher {
         
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
         let session = NSURLSession(configuration: configuration)
-        let dataTask = session.dataTaskWithRequest(urlRequest) { (data, response, error) -> Void in
+        _ = session.dataTaskWithRequest(urlRequest) { (data, response, error) -> Void in
             if error != nil {
-                let newError = Utils.customError(forNetworkError: error)
+                let newError = Utils.customError(forNetworkError: error!)
                 completionHandler(jsonDict: nil, error: newError)
                 return
             }
             
-            var jsonError: NSError?
-            let jsonDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &jsonError) as! [String:String]
-            
-            if jsonError != nil {
-                completionHandler(jsonDict: nil, error: jsonError)
+            var jsonDict: [String: String]
+            do {
+                jsonDict = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0)) as! [String:String]
+            } catch {
+                completionHandler(jsonDict: nil, error: error)
                 return
             }
             

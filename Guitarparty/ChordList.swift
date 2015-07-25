@@ -23,7 +23,7 @@ public final class ChordList : ModelObjectCollection, ArrayLiteralConvertible {
         }
     }
     
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         objects = aDecoder.decodeObjectForKey(objectsKey) as! [Chord]
     }
     
