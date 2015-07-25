@@ -19,7 +19,7 @@ public class PartyFetcher: Fetcher {
     - parameter completionHandler: The completion handler, which is passed the Party which was created and an error object. Both are optional values and it's either one or the other.
     
     */
-    public class func createParty(requestBody requestBody: PartyPOSTRequestBody, completionHandler: (result: Party?, error: NSError?) -> ()) {
+    public class func createParty(requestBody requestBody: PartyPOSTRequestBody, completionHandler: (result: Party?, error: ErrorType?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/parties/", method: .POST, body: requestBody.toJSONDict()) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(result: nil, error: error!)
@@ -42,7 +42,7 @@ public class PartyFetcher: Fetcher {
     - parameter completionHandler: The completion handler, which is passed the Party which was updated and an error object. Both are optional values and it's either one or the other.
     
     */
-    public class func updateParty(partyURI partyURI: String, requestBody: PartyPUTRequestBody, completionHandler: (result: Party?, error: NSError?) -> ()) {
+    public class func updateParty(partyURI partyURI: String, requestBody: PartyPUTRequestBody, completionHandler: (result: Party?, error: ErrorType?) -> ()) {
         Fetcher.performRequest(endpoint: partyURI, method: .PUT, body: requestBody.toJSONDict()) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(result: nil, error: error!)
@@ -65,7 +65,7 @@ public class PartyFetcher: Fetcher {
     - parameter completionHandler: The completion handler, which is passed the Party which was updated and an error object. Both are optional values and it's either one or the other.
     
     */
-    public class func updateParty(id partyId: String, requestBody: PartyPUTRequestBody, completionHandler: (result: Party?, error: NSError?) -> ()) {
+    public class func updateParty(id partyId: String, requestBody: PartyPUTRequestBody, completionHandler: (result: Party?, error: ErrorType?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/parties/\(partyId)", method: .PUT, body: requestBody.toJSONDict()) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(result: nil, error: error!)
@@ -87,7 +87,7 @@ public class PartyFetcher: Fetcher {
     - parameter completionHandler: The completion handler, which is passed a SongList of songs in the party and an error object. Both are optional values and it's either one or the other.
     
     */
-    public class func getListOfSongsInParty(id partyId: String, completionHandler: (result: SongList?, error: NSError?) -> ()) {
+    public class func getListOfSongsInParty(id partyId: String, completionHandler: (result: SongList?, error: ErrorType?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/parties/\(partyId)/songs/", method: .GET) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(result: nil, error: error!)
@@ -110,7 +110,7 @@ public class PartyFetcher: Fetcher {
     - parameter completionHandler: The completion handler, which is passed a SongList of songs in the party and an error object. Both are optional values and it's either one or the other. Since messages are a one-time event in our system, they are considered volatile and you do not get a reference to the message you created.
     
     */
-    public class func postMessage(message: PartyMessage, toParty partyId: String, completionHandler: (result: PartyMessage?, error: NSError?) -> ()) {
+    public class func postMessage(message: PartyMessage, toParty partyId: String, completionHandler: (result: PartyMessage?, error: ErrorType?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/parties/\(partyId)}/messages/", method: .POST, body: message.toJSONDict()) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(result: nil, error: error!)
