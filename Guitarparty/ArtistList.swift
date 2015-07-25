@@ -9,7 +9,7 @@
 import Foundation
 
 @objc(GPArtistList)
-public final class ArtistList: ModelObjectCollection, ArrayLiteralConvertible {
+public final class ArtistList: ModelObjectCollection {
 
     public var objects: [Artist] = []
     let objectsKey = "objects"
@@ -31,20 +31,7 @@ public final class ArtistList: ModelObjectCollection, ArrayLiteralConvertible {
         aCoder.encodeObject(objects, forKey: objectsKey)
     }
 
-    init() {
-        objects = []
-    }
-    
-    public init(arrayLiteral elements: Artist...) {
-        objects = elements;
-    }
-}
-
-extension ArtistList: SequenceType {
-    typealias Generator = IndexingGenerator<[Artist]>
-    
-    public func generate() -> IndexingGenerator<[Artist]> {
-        let artistObjects = objects as [Artist]
-        return artistObjects.generate()
+    public required init(objects: [Artist]) {
+        self.objects = objects
     }
 }
