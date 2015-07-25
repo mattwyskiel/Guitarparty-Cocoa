@@ -74,7 +74,7 @@ public class Song: ModelObject {
         // Get chord array set up
         chords = []
         let chordDictArray = jsonNSDict.objectForKey(authorsKey) as! Array<[String: AnyObject]>
-        for chordDict in authorDictArray {
+        for chordDict in chordDictArray {
             let chord = Chord(jsonDictionary: chordDict)
             chords.append(chord)
         }
