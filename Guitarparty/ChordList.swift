@@ -9,7 +9,7 @@
 import Foundation
 
 @objc(GPChordList)
-public final class ChordList : ModelObjectCollection, ArrayLiteralConvertible {
+public final class ChordList : ModelObjectCollection {
     
     public var objects: [Chord] = []
     let objectsKey = "objects"
@@ -23,29 +23,15 @@ public final class ChordList : ModelObjectCollection, ArrayLiteralConvertible {
         }
     }
     
-    required public init(coder aDecoder: NSCoder) {
+    required public init(objects: [Chord]) {
+        self.objects = objects
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
         objects = aDecoder.decodeObjectForKey(objectsKey) as! [Chord]
     }
     
     public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(objects, forKey: objectsKey)
-    }
-    
-    init() {
-        
-    }
-    
-    public init(arrayLiteral elements: Chord...) {
-        objects = elements
-    }
-
-}
-
-extension ChordList: SequenceType {
-    typealias Generator = IndexingGenerator<[Chord]>
-    
-    public func generate() -> IndexingGenerator<[Chord]> {
-        let chordObjects = objects as [Chord]
-        return chordObjects.generate()
     }
 }

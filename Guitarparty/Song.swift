@@ -43,7 +43,7 @@ public class Song: ModelObject {
     let titleKey = "title"
     let uriKey = "uri"
     
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         authors = aDecoder.decodeObjectForKey(authorsKey) as! [Author]
         body = aDecoder.decodeObjectForKey(bodyKey) as! String
         htmlBody = aDecoder.decodeObjectForKey(htmlBodyKey) as! String
@@ -113,7 +113,7 @@ public class Song: ModelObject {
         let typesKey = "types"
         let uriKey = "uri"
         
-        required public init(coder aDecoder: NSCoder) {
+        required public init?(coder aDecoder: NSCoder) {
             name = aDecoder.decodeObjectForKey(nameKey) as! String
             types = aDecoder.decodeObjectForKey(typesKey) as! [String]
             uri = aDecoder.decodeObjectForKey(uriKey) as! String

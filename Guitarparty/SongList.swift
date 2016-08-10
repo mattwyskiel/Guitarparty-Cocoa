@@ -9,22 +9,16 @@
 import Foundation
 
 @objc(GPSongList)
-public final class SongList: ModelObjectCollection, ArrayLiteralConvertible {
-    
-    public subscript(index: Int) -> Song {
-        get {
-            return objects[index]
-        }
-        set(newValue) {
-            objects[index] = newValue
-        }
-    }
+public final class SongList: ModelObjectCollection {
     
     /**
         Array of objects of a subtype of ModelObject
     */
     public var objects: [Song] = []
-    typealias Element = Song
+    
+    public required init(objects: [Song]) {
+        self.objects = objects
+    }
     
     let objectsKey = "objects"
     
@@ -37,7 +31,7 @@ public final class SongList: ModelObjectCollection, ArrayLiteralConvertible {
         }
     }
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         objects = aDecoder.decodeObjectForKey(objectsKey) as! [Song]
     }
    
@@ -45,18 +39,4 @@ public final class SongList: ModelObjectCollection, ArrayLiteralConvertible {
         aCoder.encodeObject(objects, forKey: objectsKey)
     }
     
-    init() {
-
-    }
-    
-    public init(arrayLiteral elements: Song...) {
-        objects = elements
-    }
-    
-}
-
-extension SongList: SequenceType {
-    public func generate() -> IndexingGenerator<[Song]> {
-        return objects.generate()
-    }
 }

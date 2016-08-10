@@ -17,11 +17,11 @@ public class ChordFetcher: Fetcher {
     
     Note: Make sure the query is a url-safe string.
     
-    :param: query The query string used to search for songs. You can search by chord name or by the chord fingering.
-    :param: completionHandler The completion handler, which is passed a ChordList of search results and an error object. Both are optional values and it's either one or the other.
+    - parameter query: The query string used to search for songs. You can search by chord name or by the chord fingering.
+    - parameter completionHandler: The completion handler, which is passed a ChordList of search results and an error object. Both are optional values and it's either one or the other.
     
     */
-    public class func searchChords(#query: String, completionHandler: (results: ChordList?, error: NSError?) -> ()) {
+    public class func searchChords(query query: String, completionHandler: (results: ChordList?, error: ErrorType?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/chords/?query=\(query)", method: .GET) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(results: nil, error: error)
@@ -38,11 +38,11 @@ public class ChordFetcher: Fetcher {
     
     Queries for all possible variations of a chord, passing the results to a completion handler.
     
-    :param: chordId The chord code
-    :param: completionHandler The completion handler, which is passed a ChordList of variation results and an error object. Both are optional values and it's either one or the other.
+    - parameter chordId: The chord code
+    - parameter completionHandler: The completion handler, which is passed a ChordList of variation results and an error object. Both are optional values and it's either one or the other.
     
     */
-    public class func getVariations(forChord chordId: String, completionHandler: (results: ChordList?, error: NSError?) -> ()) {
+    public class func getVariations(forChord chordId: String, completionHandler: (results: ChordList?, error: ErrorType?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/chords/\(chordId)?variations=true", method: .GET) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(results: nil, error: error)

@@ -57,7 +57,7 @@ public class Party: ModelObject {
         aCoder.encodeObject(uri, forKey: uriKey)
     }
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         currentSongId = aDecoder.decodeObjectForKey(currentSongKey) as! Int?
         description = aDecoder.decodeObjectForKey(descriptionKey) as! String?
         url = aDecoder.decodeObjectForKey(urlKey) as! NSURL
