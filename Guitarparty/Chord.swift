@@ -8,13 +8,12 @@
 
 import Foundation
 
-@objc(GPChord)
 public class Chord: ModelObject {
     
     /// The code for the chord in the database; for example, the code for Am = "xo221o".
     public var code: String
     /// The URL for an image of the chord's diagram.
-    public var imageUrl: NSURL
+    public var imageUrl: URL
     /// The instrument that the chord is played on.
     public var instrument: Instrument
     /// The name of the chord.
@@ -28,41 +27,40 @@ public class Chord: ModelObject {
     let nameKey = "name"
     let uriKey = "uri"
    
-    public required init(jsonDictionary: [String:AnyObject]) {
-        let jsonNSDict = jsonDictionary as NSDictionary
+    public required init(json: [String:AnyObject]) {
+        let jsonNSDict = json as NSDictionary
         
-        code = jsonNSDict.objectForKey(codeKey) as! String
+        code = jsonNSDict.object(forKey: codeKey) as! String
         
-        let imgUrlString = jsonNSDict.objectForKey(imageUrlKey) as! String
-        imageUrl = NSURL(string: imgUrlString)!
+        let imgUrlString = jsonNSDict.object(forKey: imageUrlKey) as! String
+        imageUrl = URL(string: imgUrlString)!
         
-        let instrumentDictionary = jsonNSDict.objectForKey(instrumentKey) as! [String:AnyObject]
-        instrument = Instrument(jsonDictionary: instrumentDictionary)
+        let instrumentDictionary = jsonNSDict.object(forKey: instrumentKey) as! [String:AnyObject]
+        instrument = Instrument(json: instrumentDictionary)
         
-        name = jsonNSDict.objectForKey(nameKey) as! String
+        name = jsonNSDict.object(forKey: nameKey) as! String
         
-        uri = jsonNSDict.objectForKey(uriKey) as! String
+        uri = jsonNSDict.object(forKey: uriKey) as! String
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        code = aDecoder.decodeObjectForKey(codeKey) as! String
-        imageUrl = aDecoder.decodeObjectForKey(imageUrlKey) as! NSURL
-        instrument = aDecoder.decodeObjectForKey(instrumentKey) as! Instrument
-        name = aDecoder.decodeObjectForKey(nameKey) as! String
-        uri = aDecoder.decodeObjectForKey(uriKey) as! String
+        code = aDecoder.decodeObject(forKey: codeKey) as! String
+        imageUrl = aDecoder.decodeObject(forKey: imageUrlKey) as! URL
+        instrument = aDecoder.decodeObject(forKey: instrumentKey) as! Instrument
+        name = aDecoder.decodeObject(forKey: nameKey) as! String
+        uri = aDecoder.decodeObject(forKey: uriKey) as! String
     }
     
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(code, forKey: codeKey)
-        aCoder.encodeObject(imageUrl, forKey: imageUrlKey)
-        aCoder.encodeObject(instrument, forKey: instrumentKey)
-        aCoder.encodeObject(name, forKey: nameKey)
-        aCoder.encodeObject(uri, forKey: uriKey)
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode(code, forKey: codeKey)
+        aCoder.encode(imageUrl, forKey: imageUrlKey)
+        aCoder.encode(instrument, forKey: instrumentKey)
+        aCoder.encode(name, forKey: nameKey)
+        aCoder.encode(uri, forKey: uriKey)
     }
     
 }
 
-@objc(GPInstrument)
 public class Instrument: ModelObject {
     
     /// The name of the instrument.
@@ -77,23 +75,23 @@ public class Instrument: ModelObject {
     let tuningKey = "tuning"
     
     
-    required public init(jsonDictionary: [String : AnyObject]) {
+    required public init(json jsonDictionary: [String : AnyObject]) {
         let jsonNSDict = jsonDictionary as NSDictionary
         
-        name = jsonNSDict.objectForKey(nameKey) as! String
-        safeName = jsonNSDict.objectForKey(safeNameKey) as! String
-        tuning = jsonNSDict.objectForKey(tuningKey) as! String
+        name = jsonNSDict.object(forKey: nameKey) as! String
+        safeName = jsonNSDict.object(forKey: safeNameKey) as! String
+        tuning = jsonNSDict.object(forKey: tuningKey) as! String
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        name = aDecoder.decodeObjectForKey(nameKey) as! String
-        safeName = aDecoder.decodeObjectForKey(safeNameKey) as! String
-        tuning = aDecoder.decodeObjectForKey(tuningKey) as! String
+        name = aDecoder.decodeObject(forKey: nameKey) as! String
+        safeName = aDecoder.decodeObject(forKey: safeNameKey) as! String
+        tuning = aDecoder.decodeObject(forKey: tuningKey) as! String
     }
     
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(name, forKey: nameKey)
-        aCoder.encodeObject(safeName, forKey: safeNameKey)
-        aCoder.encodeObject(tuning, forKey: tuningKey)
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: nameKey)
+        aCoder.encode(safeName, forKey: safeNameKey)
+        aCoder.encode(tuning, forKey: tuningKey)
     }
 }

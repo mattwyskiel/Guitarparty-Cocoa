@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc public class Guitarparty {
+public class Guitarparty {
     
     class var sharedInstance: Guitarparty {
         struct Static {
@@ -26,7 +26,7 @@ import Foundation
     
         - parameter key: The API key to pass to the API.
     */
-    public class func setAPIKey(key: String) {
+    public class func setAPIKey(_ key: String) {
         Guitarparty.sharedInstance.apiKey = key
     }
 }

@@ -8,7 +8,6 @@
 
 import Foundation
 
-@objc(GPUtils)
 class Utils {
     
     class func customError(forNetworkError error: NSError) -> NSError? {
@@ -23,7 +22,7 @@ class Utils {
             switch error.code {
             case NSURLErrorUnknown:
                 let errorMessage = "\(error.code) - \(error.localizedFailureReason)"
-                NSException(name: "Unknown error in \(error.domain)", reason: errorMessage, userInfo: nil).raise()
+                NSException(name: .undefinedKeyException, reason: errorMessage, userInfo: error.userInfo).raise()
                 
             case NSURLErrorNetworkConnectionLost:
                 code = NSURLErrorNetworkConnectionLost
@@ -34,7 +33,7 @@ class Utils {
                 localizedDescription = "You are not connected to the internet. Please try again when your internet connection returns."
                 
             case NSURLErrorBadServerResponse:
-                code = DataFetchErrorConsts.DataCodes.ServerError.rawValue
+                code = DataFetchErrorConsts.DataCodes.serverError.rawValue
                 localizedDescription = "There appears to be something wrong with the data we are getting back from the server. Please try again later."
                 
             case NSURLErrorCallIsActive:
@@ -60,27 +59,27 @@ class Utils {
         return nil
     }
     
-    class func customError(forResponse response:NSHTTPURLResponse) -> NSError? {
+    class func customError(for response: HTTPURLResponse) -> NSError? {
         
         let domain = DataFetchErrorConsts.ErrorDomain
         var code: Int
         var localizedDescription: String
         
         switch response.statusCode {
-        case DataFetchErrorConsts.DataCodes.BadRequest.rawValue:
-            code = DataFetchErrorConsts.DataCodes.BadRequest.rawValue
+        case DataFetchErrorConsts.DataCodes.badRequest.rawValue:
+            code = DataFetchErrorConsts.DataCodes.badRequest.rawValue
             localizedDescription = "Bad request - you may have missing or invalid parameters"
             
-        case DataFetchErrorConsts.DataCodes.Unauthorized.rawValue:
-            code = DataFetchErrorConsts.DataCodes.Unauthorized.rawValue
+        case DataFetchErrorConsts.DataCodes.unauthorized.rawValue:
+            code = DataFetchErrorConsts.DataCodes.unauthorized.rawValue
             localizedDescription = "Unauthorized - invalid API key"
             
-        case DataFetchErrorConsts.DataCodes.NotFound.rawValue:
-            code = DataFetchErrorConsts.DataCodes.NotFound.rawValue
+        case DataFetchErrorConsts.DataCodes.notFound.rawValue:
+            code = DataFetchErrorConsts.DataCodes.notFound.rawValue
             localizedDescription = "Not found - Requested resource not found"
             
-        case DataFetchErrorConsts.DataCodes.ServerError.rawValue:
-            code = DataFetchErrorConsts.DataCodes.ServerError.rawValue
+        case DataFetchErrorConsts.DataCodes.serverError.rawValue:
+            code = DataFetchErrorConsts.DataCodes.serverError.rawValue
             localizedDescription = "There appears to be something wrong with the data we are getting back from the server, or the data you are looking for was not found. Please try again later."
             
         default:
@@ -120,26 +119,26 @@ public struct DataFetchErrorConsts {
         /**
             Represents server response code 200 - OK
         */
-        case OK = 200
+        case ok = 200
         /**
             Represents server response code 201 - Created
         */
-        case Created = 201
+        case created = 201
         /**
             Represents server response code 400 - Bad Request
         */
-        case BadRequest = 400
+        case badRequest = 400
         /**
             Represents server response code 403 - Forbidden
         */
-        case Unauthorized = 403
+        case unauthorized = 403
         /**
             Represents server response code 404 - Not Found
         */
-        case NotFound = 404
+        case notFound = 404
         /**
             Represents server response code 500 - Server Error
         */
-        case ServerError = 500
+        case serverError = 500
     }
 }

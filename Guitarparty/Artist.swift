@@ -8,7 +8,6 @@
 
 import Foundation
 
-@objc(GPArtist)
 public class Artist: ModelObject {
     
     /// The artist's biography.
@@ -25,26 +24,26 @@ public class Artist: ModelObject {
     let slugKey = "slug"
     let uriKey = "uri"
     
-    required public init(jsonDictionary: [String : AnyObject]) {
+    required public init(json jsonDictionary: [String : AnyObject]) {
         let jsonNSDict = jsonDictionary as NSDictionary
         
-        bio = jsonNSDict.objectForKey(bioKey) as! String
-        name = jsonNSDict.objectForKey(nameKey) as! String
-        slug = jsonNSDict.objectForKey(slugKey) as! String
-        uri = jsonNSDict.objectForKey(uriKey) as! String
+        bio = jsonNSDict.object(forKey: bioKey) as! String
+        name = jsonNSDict.object(forKey: nameKey) as! String
+        slug = jsonNSDict.object(forKey: slugKey) as! String
+        uri = jsonNSDict.object(forKey: uriKey) as! String
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        bio = aDecoder.decodeObjectForKey(bioKey) as! String
-        name = aDecoder.decodeObjectForKey(nameKey) as! String
-        slug = aDecoder.decodeObjectForKey(slugKey) as! String
-        uri = aDecoder.decodeObjectForKey(uriKey) as! String
+        bio = aDecoder.decodeObject(forKey: bioKey) as! String
+        name = aDecoder.decodeObject(forKey: nameKey) as! String
+        slug = aDecoder.decodeObject(forKey: slugKey) as! String
+        uri = aDecoder.decodeObject(forKey: uriKey) as! String
     }
     
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(bio, forKey: bioKey)
-        aCoder.encodeObject(name, forKey: nameKey)
-        aCoder.encodeObject(slug, forKey: slugKey)
-        aCoder.encodeObject(uri, forKey: uriKey)
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode(bio, forKey: bioKey)
+        aCoder.encode(name, forKey: nameKey)
+        aCoder.encode(slug, forKey: slugKey)
+        aCoder.encode(uri, forKey: uriKey)
     }
 }

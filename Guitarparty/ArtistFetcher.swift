@@ -8,7 +8,6 @@
 
 import Foundation
 
-@objc(GPArtistFetcher)
 public class ArtistFetcher: Fetcher {
    
     /**
@@ -21,14 +20,14 @@ public class ArtistFetcher: Fetcher {
     - parameter completionHandler: The completion handler, which is passed a ArtistList of search results and an error object. Both are optional values and it's either one or the other.
     
     */
-    public class func searchForArtists(query query: String, completionHandler: (results: ArtistList?, error: ErrorType?) -> ()) {
+    public class func searchForArtists(withQuery query: String, completionHandler: (results: ArtistList?, error: Error?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/artists/?query=\(query)", method: .GET) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(results: nil, error: error)
                 return
             }
             if jsonDict != nil {
-                let artistList = ArtistList(jsonDictionary: jsonDict!)
+                let artistList = ArtistList(json: jsonDict!)
                 completionHandler(results: artistList, error: nil)
             }
         }
@@ -44,14 +43,14 @@ public class ArtistFetcher: Fetcher {
     Note: The uri parameter is always relative to the API host (i.e. http://api.guitarparty.com)
     
     */
-    public class func getArtist(uri uri: String, completionHandler: (result: Artist?, error: ErrorType?) -> ()) {
+    public class func getArtist(atURI uri: String, completionHandler: (result: Artist?, error: Error?) -> ()) {
         Fetcher.performRequest(endpoint: uri, method: .GET) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(result: nil, error: error)
                 return
             }
             if jsonDict != nil {
-                let artist = Artist(jsonDictionary: jsonDict!)
+                let artist = Artist(json: jsonDict!)
                 completionHandler(result: artist, error: nil)
             }
         }
@@ -66,14 +65,14 @@ public class ArtistFetcher: Fetcher {
     
     */
 
-    public class func getArtist(id id: Int, completionHandler: (result: Artist?, error: ErrorType?) -> ()) {
+    public class func getArtist(forId id: Int, completionHandler: (result: Artist?, error: Error?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/artists/\(id)/", method: .GET) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(result: nil, error: error)
                 return
             }
             if jsonDict != nil {
-                let artist = Artist(jsonDictionary: jsonDict!)
+                let artist = Artist(json: jsonDict!)
                 completionHandler(result: artist, error: nil)
             }
         }

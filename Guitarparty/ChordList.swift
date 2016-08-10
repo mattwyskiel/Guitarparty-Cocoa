@@ -8,17 +8,16 @@
 
 import Foundation
 
-@objc(GPChordList)
 public final class ChordList : ModelObjectCollection {
     
     public var objects: [Chord] = []
     let objectsKey = "objects"
     
-    required public init(jsonDictionary: [String : AnyObject]) {
+    required public init(json jsonDictionary: [String : AnyObject]) {
         let objectsArrayAnyObject: AnyObject? = jsonDictionary[objectsKey]
         let objectDictsArray = objectsArrayAnyObject as! [[String: AnyObject]]
         for chordObject in objectDictsArray {
-            let chord = Chord(jsonDictionary: chordObject)
+            let chord = Chord(json: chordObject)
             objects.append(chord)
         }
     }
@@ -28,10 +27,10 @@ public final class ChordList : ModelObjectCollection {
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        objects = aDecoder.decodeObjectForKey(objectsKey) as! [Chord]
+        objects = aDecoder.decodeObject(forKey: objectsKey) as! [Chord]
     }
     
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(objects, forKey: objectsKey)
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode(objects, forKey: objectsKey)
     }
 }

@@ -8,13 +8,12 @@
 
 import Foundation
 
-@objc(GPModelObject)
 public protocol ModelObject: NSCoding {
-    init(jsonDictionary: [String : AnyObject])
+    init(json: [String : AnyObject])
 }
 
-public protocol ModelObjectCollection : ModelObject, SequenceType, ArrayLiteralConvertible {
-    typealias Element: ModelObject
+public protocol ModelObjectCollection : ModelObject, ExpressibleByArrayLiteral {
+    associatedtype Element: ModelObject
     /**
         Array of objects
     */
@@ -23,10 +22,6 @@ public protocol ModelObjectCollection : ModelObject, SequenceType, ArrayLiteralC
 }
 
 extension ModelObjectCollection {
-    public func generate() -> IndexingGenerator<[Element]> {
-        return objects.generate()
-    }
-    
     public init(arrayLiteral elements: Element...) {
         self.init(objects: elements)
     }

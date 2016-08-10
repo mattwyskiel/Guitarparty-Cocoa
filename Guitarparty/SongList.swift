@@ -8,7 +8,6 @@
 
 import Foundation
 
-@objc(GPSongList)
 public final class SongList: ModelObjectCollection {
     
     /**
@@ -22,21 +21,21 @@ public final class SongList: ModelObjectCollection {
     
     let objectsKey = "objects"
     
-    public required init(jsonDictionary: [String : AnyObject]) {
-        let objectsArrayAnyObject: AnyObject? = jsonDictionary[objectsKey]
+    public required init(json: [String : AnyObject]) {
+        let objectsArrayAnyObject: AnyObject? = json[objectsKey]
         let objectDictsArray = objectsArrayAnyObject as! [[String: AnyObject]]
         for songObject in objectDictsArray {
-            let song = Song(jsonDictionary: songObject)
+            let song = Song(json: songObject)
             objects.append(song)
         }
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        objects = aDecoder.decodeObjectForKey(objectsKey) as! [Song]
+        objects = aDecoder.decodeObject(forKey: objectsKey) as! [Song]
     }
    
-    public func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(objects, forKey: objectsKey)
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode(objects, forKey: objectsKey)
     }
     
 }

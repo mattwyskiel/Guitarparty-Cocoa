@@ -8,7 +8,6 @@
 
 import Foundation
 
-@objc(GPFetcher)
 public class Fetcher {
     
     enum FetcherRequestMethod: String {
@@ -26,15 +25,15 @@ public class Fetcher {
         - parameter body: (optional) An HTTP body dictionary
         - parameter completionHandler: A block/closure to be called after the request completes.
     */
-    class func performRequest(endpoint endpoint: String, method: FetcherRequestMethod, body: [String:AnyObject]? = nil, completionHandler: (jsonDict: [String: AnyObject]?, error: ErrorType?) -> ()) {
+    class func performRequest(endpoint: String, method: FetcherRequestMethod, body: [String:AnyObject]? = nil, completionHandler: (jsonDict: [String: AnyObject]?, error: Error?) -> ()) {
         let urlString = "http://api.guitarparty.com\(endpoint)"
-        let urlRequest = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-        urlRequest.HTTPMethod = method.rawValue
+        var urlRequest = URLRequest(url: URL(string: urlString)!)
+        urlRequest.httpMethod = method.rawValue
         
         
         if body != nil {
             do {
-                urlRequest.HTTPBody = try NSJSONSerialization.dataWithJSONObject(body!, options: NSJSONWritingOptions(rawValue: 0))
+                urlRequest.httpBody = try JSONSerialization.data(withJSONObject: body!, options: JSONSerialization.WritingOptions(rawValue: 0))
             } catch _ {
                 
             }
@@ -46,9 +45,7 @@ public class Fetcher {
             fatalError("No API key has been set. The request cannot be completed. \nSet the API Key using Guitarparty.setAPIKey(key: String)")
         }
         
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: configuration)
-        _ = session.dataTaskWithRequest(urlRequest) { (data, response, error) -> Void in
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             if error != nil {
                 let newError = Utils.customError(forNetworkError: error!)
                 completionHandler(jsonDict: nil, error: newError)
@@ -57,21 +54,21 @@ public class Fetcher {
             
             var jsonDict: [String: String]
             do {
-                jsonDict = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0)) as! [String:String]
+                jsonDict = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions(rawValue: 0)) as! [String:String]
             } catch {
                 completionHandler(jsonDict: nil, error: error)
                 return
             }
             
             if jsonDict["error"] != nil {
-                let httpResponse = response as! NSHTTPURLResponse
-                let errorNotError = Utils.customError(forResponse: httpResponse)
+                let httpResponse = response as! HTTPURLResponse
+                let errorNotError = Utils.customError(for: httpResponse)
                 completionHandler(jsonDict: nil, error: errorNotError)
                 return
             }
             
             completionHandler(jsonDict: jsonDict, error: nil)
-        }
+        }.resume()
         
     }
     

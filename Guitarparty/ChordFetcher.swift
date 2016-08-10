@@ -8,7 +8,6 @@
 
 import Foundation
 
-@objc(GPChordFetcher)
 public class ChordFetcher: Fetcher {
     
     /**
@@ -21,14 +20,14 @@ public class ChordFetcher: Fetcher {
     - parameter completionHandler: The completion handler, which is passed a ChordList of search results and an error object. Both are optional values and it's either one or the other.
     
     */
-    public class func searchChords(query query: String, completionHandler: (results: ChordList?, error: ErrorType?) -> ()) {
+    public class func searchChords(query: String, completionHandler: (results: ChordList?, error: Error?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/chords/?query=\(query)", method: .GET) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(results: nil, error: error)
                 return
             }
             if jsonDict != nil {
-                let chordList = ChordList(jsonDictionary: jsonDict!)
+                let chordList = ChordList(json: jsonDict!)
                 completionHandler(results: chordList, error: nil)
             }
         }
@@ -42,14 +41,14 @@ public class ChordFetcher: Fetcher {
     - parameter completionHandler: The completion handler, which is passed a ChordList of variation results and an error object. Both are optional values and it's either one or the other.
     
     */
-    public class func getVariations(forChord chordId: String, completionHandler: (results: ChordList?, error: ErrorType?) -> ()) {
+    public class func getVariations(forChordWithId chordId: String, completionHandler: (results: ChordList?, error: Error?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/chords/\(chordId)?variations=true", method: .GET) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(results: nil, error: error)
                 return
             }
             if jsonDict != nil {
-                let chordList = ChordList(jsonDictionary: jsonDict!)
+                let chordList = ChordList(json: jsonDict!)
                 completionHandler(results: chordList, error: nil)
             }
         }

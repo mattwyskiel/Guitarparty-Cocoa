@@ -8,7 +8,6 @@
 
 import Foundation
 
-@objc(GPSongFetcher)
 public class SongFetcher: Fetcher {
     
     /**
@@ -21,14 +20,14 @@ public class SongFetcher: Fetcher {
     - parameter completionHandler: The completion handler, which is passed a SongList of search results and an error object. Both are optional values and it's either one or the other.
     
     */
-    public class func searchForSongs(query query: String, completionHandler: (results: SongList?, error: ErrorType?) -> ()) {
+    public class func searchForSongs(withQuery query: String, completionHandler: (results: SongList?, error: Error?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/songs/?query=\(query)/", method: .GET) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(results: nil, error: error)
                 return
             }
             if jsonDict != nil {
-                let songList = SongList(jsonDictionary: jsonDict!)
+                let songList = SongList(json: jsonDict!)
                 completionHandler(results: songList, error: nil)
             }
         }
@@ -44,14 +43,14 @@ public class SongFetcher: Fetcher {
     Note: The uri parameter is always relative to the API host (i.e. http://api.guitarparty.com)
     
     */
-    public class func getSong(uri uri: String, completionHandler: (result: Song?, error: ErrorType?) -> ()) {
+    public class func getSong(atURI uri: String, completionHandler: (result: Song?, error: Error?) -> ()) {
         Fetcher.performRequest(endpoint: uri, method: .GET) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(result: nil, error: error)
                 return
             }
             if jsonDict != nil {
-                let song = Song(jsonDictionary: jsonDict!)
+                let song = Song(json: jsonDict!)
                 completionHandler(result: song, error: nil)
             }
         }
@@ -65,14 +64,14 @@ public class SongFetcher: Fetcher {
     - parameter completionHandler: The completion handler, which is passed the results in the form of a Song object and an error object. Both are optional values and it's either one or the other.
     
     */
-    public class func getSong(id id: Int, completionHandler: (result: Song?, error: ErrorType?) -> ()) {
+    public class func getSong(forId id: Int, completionHandler: (result: Song?, error: Error?) -> ()) {
         Fetcher.performRequest(endpoint: "/v2/songs/\(id)/", method: .GET) { (jsonDict, error) -> () in
             if error != nil {
                 completionHandler(result: nil, error: error)
                 return
             }
             if jsonDict != nil {
-                let song = Song(jsonDictionary: jsonDict!)
+                let song = Song(json: jsonDict!)
                 completionHandler(result: song, error: nil)
             }
         }
