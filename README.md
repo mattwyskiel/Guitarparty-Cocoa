@@ -1,3 +1,8 @@
+## Archive
+Take a gander at my early days of code and open source! This code is no longer maintained, but this repository certainly has historical utility.
+
+---
+
 ![Guitarparty Logo](http://guitarparty-static-media.s3.amazonaws.com/images/v3/body/logo.6329ffbed64d.png)
 
 # Welcome.
